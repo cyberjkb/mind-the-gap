@@ -3,7 +3,7 @@
 ## Objective & Grading Standard
 - Build a responsive 3-page static website (`index.html`, `services.html`, `contact.html`, plus `thank-you.html` if needed for pure-HTML Web3Forms confirmation) targeting **Distinction** level.
 - Repository: `cyberjkb/mind-the-gap`, deployed via GitHub Pages (`main` branch, `/root`).
-- Include thorough `README.md` and `TESTING.md` (with multi-device showcase imagery placeholder/section) modeled on high-scoring Code Institute milestone projects (`../mei-wong/` and `https://github.com/Mivic1998/the-wayfarers-rest`).
+- Include thorough `README.md` and `TESTING.md` (with multi-device showcase imagery placeholder/section) modeled on high-scoring Code Institute milestone projects (`../mei-wong/` and `../boardwalk-games/` and `https://github.com/Mivic1998/the-wayfarers-rest`).
 
 ## Reference Files (`../project-1-ref/`)
 Read these Markdown and visual files first to align with project scope, user stories, and grading criteria:
