@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- WHAT: Character set and responsive viewport. WHY: Correct text encoding and proper scaling on mobile devices. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WHAT: SEO description and keywords. WHY: Helps search engines and link previews describe the page. -->
+    <meta name="description" content="Send a distress signal to Mind the Gap Man, London's superhero for hire. Spiders, stuck jars, Wi-Fi outages or a full arch-nemesis, whatever the crisis, help is one Tube stop away.">
+    <meta name="keywords" content="Mind the Gap Man, superhero for hire, London, hero services, distress signal, London Underground">
+    <meta name="author" content="cyberjkb">
+    <title>Mind the Gap Man | Distress Signal</title>
+
+    <!-- WHAT: Site favicon (SVG roundel). WHY: Brand icon in the browser tab and bookmarks. -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- WHAT: Google Fonts - Bangers (comic headings) and Open Sans (body). WHY: Comic lettering for display text, plain readable font for paragraphs. preconnect speeds up the font download. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- WHAT: Bootstrap 5.3.3 CSS (stable release). WHY: Responsive grid, navbar, cards, list groups and form components. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- WHAT: Font Awesome kit. WHY: Social media and contact icons. -->
+    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous"></script>
+
+    <!-- WHAT: Custom stylesheet, loaded last. WHY: So the comic theme overrides Bootstrap defaults. -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- WHAT: Site header containing the main navigation. WHY: Semantic <header>/<nav> landmarks help screen readers; the platform-floor photo background matches wireframe-1. -->
+    <header>
+        <!-- WHAT: Bootstrap responsive navbar (expands at the xl breakpoint, 1200px). WHY: Full link row on desktop, hamburger menu on tablet and mobile. -->
+        <nav class="navbar navbar-expand-xl navbar-platform" aria-label="Main navigation">
+            <div class="container-fluid px-3 px-lg-4">
+                <!-- WHAT: Brand logo linking home. WHY: Standard UX convention - clicking the logo returns to the home page. -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
+                </a>
+                <!-- WHAT: Hamburger toggle (Bootstrap collapse). WHY: Collapses links into a menu on tablet/mobile; powered by the Bootstrap bundle, no custom JS. -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- WHAT: Navigation links. WHY: ms-auto pushes them right so the centre "MIND THE GAP" floor text stays visible. -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Distress Signal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- WHAT: Main page content. WHY: The <main> landmark lets screen reader users skip straight past the navigation. -->
+    <main>
+        <!-- WHAT: Sub-page comic banner with the page h1 and an intro line. WHY: Gives the page one clear title in the shared comic style and sets the jokey tone before the form. -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title"><span class="comic-tilt">Distress</span> Signal</h1>
+                <p class="page-lead">Whatever the crisis, big or small, from a rogue spider in the bath to a full-blown arch-nemesis on the Central line, send a signal and Mind the Gap Man will be on the next train. Please stand behind the yellow line while you wait.</p>
+            </div>
+        </section>
+
+        <!-- WHAT: Contact section with two columns: HQ details on the left, message form on the right. WHY: Users can choose to phone or email directly, or send a detailed message; columns stack on mobile. -->
+        <section id="contact" class="comic-section">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- WHAT: Hero HQ contact details card. WHY: Gives quick alternatives to the form (phone, email, address and hours) with icons for fast scanning. -->
+                    <div class="col-lg-5">
+                        <div class="card comic-panel h-100">
+                            <!-- WHAT: SOS image at the top of the HQ card. WHY: Reinforces the emergency theme visually; lazy loaded as it may sit below the fold on mobile. -->
+                            <img src="assets/images/sos.webp" alt="Comic illustration of a bright SOS distress signal lighting up the London night sky" class="card-img-top img-fluid rounded-0" width="1367" height="768" loading="lazy">
+                            <div class="card-body p-4">
+                                <!-- WHAT: Comic sound effect label. WHY: Adds comic-book energy above the heading; hidden from screen readers as it is decorative. -->
+                                <p class="text-center mb-3" aria-hidden="true"><span class="sfx-burst">SOS!</span></p>
+                                <h2 class="card-title">Hero HQ</h2>
+                                <p>Prefer to talk to a real hero? Use the hotline or email below. Calls may be answered mid-rescue, so please excuse any heavy breathing or cape flapping.</p>
+                                <!-- WHAT: Fictional contact details inside an address element. WHY: <address> semantically marks up contact information; tel: and mailto: links let mobile users tap to call or email. -->
+                                <address class="mb-0">
+                                    <ul class="list-unstyled contact-detail-list mb-0">
+                                        <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <strong>Hotline:</strong> <a href="tel:+442079460999">020 7946 0999</a></li>
+                                        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <strong>Email:</strong> <a href="mailto:distress@mindthegapman.example">distress@mindthegapman.example</a></li>
+                                        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <strong>HQ:</strong> Behind the yellow line, Platform 2, Bank Station, London EC3V</li>
+                                        <li><i class="fa-solid fa-clock" aria-hidden="true"></i> <strong>Hours:</strong> 24/7, except during engineering works</li>
+                                    </ul>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WHAT: General distress message form panel. WHY: Lets users describe their crisis in detail; sent by Web3Forms so no server or custom JavaScript is needed. -->
+                    <div class="col-lg-7">
+                        <div class="comic-panel p-4">
+                            <h2>Send a Distress Signal</h2>
+                            <p>Fill in the form and the signal goes straight to the hero's utility belt. Fields marked with an asterisk (*) are required.</p>
+                            <!-- WHAT: Web3Forms submission endpoint. WHY: Lets a static site send form data by email with no server or JavaScript. -->
+                            <form class="form-comic" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- ACCESS KEY: replace YOUR_ACCESS_KEY_HERE with your free key from https://web3forms.com -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                                <!-- REDIRECT: after a successful submit Web3Forms sends the user to this page. Must be the full live URL. -->
+                                <input type="hidden" name="redirect" value="https://cyberjkb.github.io/mind-the-gap/thank-you.html">
+                                <!-- WHAT: Email subject line. WHY: Makes distress signals easy to spot in the hero's inbox. -->
+                                <input type="hidden" name="subject" value="New Distress Signal - Mind the Gap Man">
+                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it -->
+                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1">
+
+                                <!-- WHAT: Name and email fields side by side. WHY: Required so the hero knows who to rescue and how to reply; stacks on small screens. -->
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="contact-name" class="form-label">Your Name *</label>
+                                        <input type="text" class="form-control" id="contact-name" name="name" autocomplete="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contact-email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="contact-email" name="email" autocomplete="email" required>
+                                    </div>
+
+                                    <!-- WHAT: Optional phone number and crisis level. WHY: A phone number allows a call back; crisis level helps the hero prioritise. -->
+                                    <div class="col-md-6">
+                                        <label for="contact-phone" class="form-label">Phone (optional)</label>
+                                        <input type="tel" class="form-control" id="contact-phone" name="phone" autocomplete="tel">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="contact-crisis" class="form-label">Crisis Level *</label>
+                                        <select class="form-select" id="contact-crisis" name="crisis_level" required>
+                                            <option value="" disabled selected>Choose a crisis level</option>
+                                            <option value="Mild Inconvenience">Mild Inconvenience</option>
+                                            <option value="Proper Crisis">Proper Crisis</option>
+                                            <option value="Total Catastrophe">Total Catastrophe</option>
+                                            <option value="Just Saying Hello">Just Saying Hello</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- WHAT: Location field. WHY: The hero needs to know where to go; a Tube station is the most useful landmark. -->
+                                    <div class="col-12">
+                                        <label for="contact-location" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="contact-location" name="location" placeholder="Coordinates or nearest Tube station">
+                                    </div>
+
+                                    <!-- WHAT: Arrival method radio group in a fieldset. WHY: fieldset and legend group the options so screen readers announce the question with each choice. -->
+                                    <div class="col-12">
+                                        <fieldset>
+                                            <legend class="form-label">Preferred Superhero Arrival Method</legend>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="arrival_method" id="arrival-straps" value="Swinging from Tube straps" checked>
+                                                <label class="form-check-label" for="arrival-straps">Swinging from Tube straps</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="arrival_method" id="arrival-flying" value="Flying, weather permitting">
+                                                <label class="form-check-label" for="arrival-flying">Flying, weather permitting</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="arrival_method" id="arrival-night-bus" value="Night Bus">
+                                                <label class="form-check-label" for="arrival-night-bus">Night Bus</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <!-- WHAT: Message textarea. WHY: Required so the hero gets the full story of the crisis before setting off. -->
+                                    <div class="col-12">
+                                        <label for="contact-message" class="form-label">Describe Your Crisis *</label>
+                                        <textarea class="form-control" id="contact-message" name="message" rows="5" placeholder="Tell us everything. Size of spider, stubbornness of jar, name of arch-nemesis..." required></textarea>
+                                    </div>
+
+                                    <!-- WHAT: Consent checkbox. WHY: Users confirm they are happy to be contacted, which is good data protection practice. -->
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="contact-consent" name="consent" value="yes" required>
+                                            <label class="form-check-label" for="contact-consent">I agree that Mind the Gap Man may contact me about this distress signal *</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- WHAT: Red submit button. WHY: Red signals urgency and matches the Distress Signal theme across the site. -->
+                                    <div class="col-12 text-center text-md-start">
+                                        <button type="submit" class="btn btn-comic btn-distress mt-2">Send Distress Signal</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WHAT: Site footer with Tube-themed jokes, fake social links and copyright. WHY: Consistent closing section on every page; navy + yellow stripe echoes the platform edge. -->
+    <footer class="footer-tube mt-5">
+        <div class="container text-center">
+            <!-- WHAT: Humorous Tube-style announcement. WHY: Keeps the parody tone right to the bottom of the page. -->
+            <h2 class="footer-heading">Please Mind The Gap Man</h2>
+            <p class="mb-1">This hero is now arriving. Please stand clear of the cape.</p>
+            <p class="mb-1">Rescues on the Northern line are subject to delays. Rescues on the Waterloo &amp; City line are only available Monday to Friday.</p>
+            <!-- WHAT: Social media icon links (Font Awesome). WHY: Fake hero profiles point to each platform's homepage; aria-labels describe icon-only links for screen readers; open in a new tab so users don't lose the site. -->
+            <ul class="footer-social">
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X, formerly Twitter (opens in a new tab)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></li>
+            </ul>
+            <!-- WHAT: Copyright and parody disclaimer in small plain text. WHY: Legal-style text should be readable, not comic lettering. -->
+            <p class="footer-copy">&copy; 2026 Mind the Gap Man. A parody project for educational purposes. Not affiliated with Transport for London. No real heroes were harmed in the making of this website.</p>
+        </div>
+    </footer>
+
+    <!-- WHAT: Bootstrap 5.3.3 JS bundle (includes Popper). WHY: Required only for the navbar hamburger collapse; this is Bootstrap's own script, no custom JavaScript is used. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

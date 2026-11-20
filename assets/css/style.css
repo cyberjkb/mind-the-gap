@@ -1,0 +1,965 @@
+/* ==========================================================================
+   MIND THE GAP MAN - Custom Stylesheet
+   --------------------------------------------------------------------------
+   WHAT: All custom styling layered on top of Bootstrap 5.3.
+   WHY:  Bootstrap gives us the responsive grid and components; this file
+         turns them into a London Underground / comic-book strip look using
+         pure CSS (no JavaScript). Sections are ordered from global rules
+         down to page-specific components, then media queries last so they
+         can override earlier rules.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. COLOUR PALETTE & DESIGN TOKENS (CSS custom properties)
+   WHAT: Named colours, borders and shadows reused across the whole site.
+   WHY:  Defining them once means every page matches exactly, and a colour
+         can be changed in one place. Red/blue are London Underground brand
+         colours; yellow is the platform-edge warning paint; cream "paper"
+         and black "ink" give the printed comic-book feel.
+   -------------------------------------------------------------------------- */
+:root {
+    --tube-red: #dc241f;        /* Underground roundel red */
+    --tube-red-dark: #a51b17;   /* darker red for hover states */
+    --tube-blue: #0019a8;       /* Underground corporate blue */
+    --tube-blue-dark: #000f66;  /* deep navy for footer / text on light */
+    --platform-yellow: #ffd300; /* "Mind the gap" platform warning yellow */
+    --sky-cyan: #00a4e4;        /* complementary accent (comic speed lines) */
+    --paper: #fff8e7;           /* aged comic paper background */
+    --ink: #111111;             /* comic ink outline colour */
+    --white: #ffffff;
+
+    --font-display: 'Bangers', 'Impact', 'Arial Black', sans-serif;
+    --font-body: 'Open Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+
+    --ink-border: 4px solid var(--ink);
+    --ink-shadow: 6px 6px 0 var(--ink);
+    --ink-shadow-lg: 10px 10px 0 var(--ink);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL BASE STYLES
+   WHAT: Body font, background and default text colour.
+   WHY:  A clean, readable body font keeps paragraphs accessible, while the
+         subtle halftone dot pattern (made with a CSS radial-gradient) hints
+         at old printed comics without hurting text contrast.
+   -------------------------------------------------------------------------- */
+body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(rgba(0, 25, 168, 0.08) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    line-height: 1.6;
+}
+
+/* WHAT: Heading and display typography.
+   WHY:  'Bangers' is the comic-book lettering font used for headings only,
+         so long body copy stays easy to read. Letter-spacing improves
+         legibility of the condensed display font. */
+h1, h2, h3, h4, h5, h6,
+.font-comic {
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    font-weight: 400;
+}
+
+/* WHAT: Visible keyboard focus ring.
+   WHY:  Accessibility - keyboard users must always see where they are. */
+a:focus-visible,
+.btn:focus-visible,
+.form-control:focus,
+.form-select:focus {
+    outline: 3px dashed var(--tube-red);
+    outline-offset: 3px;
+    box-shadow: none;
+}
+
+/* WHAT: Tilt helper for the first letter/word of a heading or button.
+   WHY:  ::first-letter cannot be rotated in CSS, so the first letter/word
+         is wrapped in <span class="comic-tilt"> instead. inline-block is
+         required for transform to work on an inline element. */
+.comic-tilt {
+    display: inline-block;
+    transform: rotate(-8deg) translateY(-2px);
+    color: var(--tube-red);
+}
+
+/* WHAT: Alternate tilt direction.
+   WHY:  Used where a red letter would clash (e.g. on red buttons). */
+.comic-tilt-alt {
+    display: inline-block;
+    transform: rotate(6deg);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. NAVBAR (shared on every page - matches wireframe-1)
+   WHAT: The platform-floor photo as the navbar background, logo on the
+         left, links + hamburger on the right.
+   WHY:  background-size: cover stretches the image edge-to-edge on desktop
+         and crops it on smaller screens; background-position: center keeps
+         the "MIND THE GAP" lettering in view at every width.
+   -------------------------------------------------------------------------- */
+.navbar-platform {
+    background-color: #3a3a3a; /* fallback if the image fails to load */
+    background-image: url("../images/mind-the-gap-platform-floor-crop.webp");
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    min-height: 110px;
+    border-bottom: 6px solid var(--ink);
+    box-shadow: 0 6px 0 var(--platform-yellow);
+    /* WHY: Keeps the yellow underline (box-shadow) above the hero banner,
+            which would otherwise paint over it. */
+    z-index: 10;
+}
+
+/* WHAT: Small hero-shield logo in the navbar brand.
+   WHY:  Fixed height keeps the navbar compact; the drop-shadow helps the
+         logo stand out against the busy platform texture. */
+.navbar-logo {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(3px 3px 0 var(--ink));
+    transition: transform 0.2s ease-in-out;
+}
+
+.navbar-brand:hover .navbar-logo,
+.navbar-brand:focus-visible .navbar-logo {
+    transform: rotate(-6deg) scale(1.05);
+}
+
+/* WHAT: Navigation links styled as little comic "sticker" labels.
+   WHY:  The background photo is busy, so each link gets a solid dark
+         backing and an ink border to guarantee readable contrast. */
+.navbar-platform .nav-link {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    background-color: var(--tube-blue);
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 0.2rem 0.9rem;
+    margin: 0.25rem;
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.navbar-platform .nav-link:hover,
+.navbar-platform .nav-link:focus-visible {
+    color: var(--ink);
+    background-color: var(--platform-yellow);
+    transform: rotate(-3deg);
+}
+
+/* WHAT: Highlight for the page the user is currently on.
+   WHY:  Tells users where they are (aria-current="page" is set in HTML
+         so screen readers announce it too). */
+.navbar-platform .nav-link.active,
+.navbar-platform .nav-link[aria-current="page"] {
+    color: var(--white);
+    background-color: var(--tube-red);
+}
+
+/* WHAT: Hamburger toggle button for tablet/mobile.
+   WHY:  Bootstrap's default toggler is grey and invisible on the dark
+         photo, so it gets a yellow comic-panel treatment. */
+.navbar-platform .navbar-toggler {
+    background-color: var(--platform-yellow);
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+}
+
+.navbar-platform .navbar-toggler:focus {
+    box-shadow: 3px 3px 0 var(--ink), 0 0 0 0.2rem var(--tube-red);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. SHARED COMIC COMPONENTS
+   WHAT: Panels, section titles, buttons and caption boxes used on all
+         pages.
+   WHY:  Reusable classes keep every page consistent and avoid repeating
+         the same CSS rules.
+   -------------------------------------------------------------------------- */
+
+/* WHAT: Standard content section spacing.
+   WHY:  Consistent vertical rhythm between sections on all pages. */
+.comic-section {
+    padding: 4rem 0;
+}
+
+/* WHAT: Section heading styled like the Underground roundel name-bar.
+   WHY:  A blue bar crossing a red ring is instantly "Tube", tying each
+         section title to the theme. The ring is a pseudo-element so the
+         HTML stays a plain, semantic <h2>. */
+.roundel-title {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    color: var(--white);
+    background-color: var(--tube-blue);
+    border: var(--ink-border);
+    box-shadow: var(--ink-shadow);
+    padding: 0.2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    z-index: 1;
+}
+
+.roundel-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 14px solid var(--tube-red);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* WHAT: Generic comic panel (box with thick ink border and hard shadow).
+   WHY:  Applied to Bootstrap cards/containers to make them look like
+         panels drawn on a comic page. */
+.comic-panel {
+    background-color: var(--white);
+    border: var(--ink-border);
+    border-radius: 0;
+    box-shadow: var(--ink-shadow-lg);
+}
+
+/* WHAT: Clickable comic panel (whole card is a link).
+   WHY:  Gives a "lift off the page" hover cue so users know the panel is
+         interactive. Text decoration and colour reset stop the whole card
+         turning blue/underlined like a normal link. */
+.comic-panel-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.comic-panel-link:hover,
+.comic-panel-link:focus-visible {
+    color: inherit;
+    transform: translate(-4px, -4px) rotate(-0.5deg);
+    box-shadow: 14px 14px 0 var(--ink);
+}
+
+/* WHAT: Yellow narration caption box (top-left of comic panels).
+   WHY:  Mimics the classic rectangular caption boxes in comic strips. */
+.comic-caption {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    background-color: var(--platform-yellow);
+    border: 3px solid var(--ink);
+    padding: 0.1rem 0.6rem;
+}
+
+/* WHAT: Speech-bubble text box with a tail.
+   WHY:  Used for intro copy (e.g. "I can be your Hero...") so the hero
+         appears to be talking. The tail is drawn with CSS borders. */
+.speech-bubble {
+    position: relative;
+    background-color: var(--white);
+    border: var(--ink-border);
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--ink-shadow);
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: 3rem;
+    border-width: 0 0 26px 26px;
+    border-style: solid;
+    border-color: transparent transparent var(--ink) transparent;
+}
+
+/* WHAT: "Mind the gap" yellow warning-stripe divider.
+   WHY:  A repeating yellow/black hazard line separates sections and
+         echoes the platform edge. Decorative only (aria-hidden in HTML). */
+.gap-stripe {
+    height: 14px;
+    border: 0;
+    margin: 0;
+    opacity: 1;
+    background: repeating-linear-gradient(-45deg,
+            var(--platform-yellow) 0 18px,
+            var(--ink) 18px 36px);
+}
+
+/* WHAT: "BANG!"-style starburst sound-effect label.
+   WHY:  Pure-CSS clip-path starburst adds comic energy to headings or
+         images without any extra image files. */
+.sfx-burst {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ink);
+    background-color: var(--platform-yellow);
+    padding: 1.4rem 1.8rem;
+    transform: rotate(-10deg);
+    clip-path: polygon(50% 0%, 61% 20%, 82% 8%, 77% 31%, 100% 35%, 81% 52%,
+            98% 70%, 74% 72%, 78% 95%, 58% 82%, 50% 100%, 40% 82%,
+            20% 95%, 24% 72%, 0% 70%, 18% 52%, 0% 35%, 23% 31%, 18% 8%, 39% 20%);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. COMIC BUTTONS
+   WHAT: Bootstrap .btn extended with thick borders, hard shadow and a
+         small tilt.
+   WHY:  Buttons should look "punchy" like comic lettering. The press
+         effect (shadow shrinks on :active) gives tactile feedback with
+         no JavaScript.
+   -------------------------------------------------------------------------- */
+.btn-comic {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    background-color: var(--platform-yellow);
+    border: var(--ink-border);
+    border-radius: 0.5rem;
+    box-shadow: var(--ink-shadow);
+    padding: 0.5rem 1.75rem;
+    transform: rotate(-2deg);
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+        background-color 0.15s ease-in-out;
+}
+
+.btn-comic:hover,
+.btn-comic:focus-visible {
+    color: var(--ink);
+    background-color: var(--white);
+    border-color: var(--ink);
+    transform: rotate(1deg) scale(1.05);
+}
+
+.btn-comic:active {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+/* WHAT: Alert-red "DISTRESS SIGNAL" button variant.
+   WHY:  Red signals urgency/emergency and matches the roundel red.
+   NOTE: The .btn:active selector is included so Bootstrap's own pressed
+         colours do not override ours. */
+.btn-distress,
+.btn-distress:active {
+    color: var(--white);
+    background-color: var(--tube-red);
+}
+
+.btn-distress:hover,
+.btn-distress:focus-visible {
+    color: var(--white);
+    background-color: var(--tube-red-dark);
+}
+
+/* WHAT: Blue button variant for secondary actions (e.g. form submit).
+   WHY:  Keeps the palette balanced and differentiates actions. */
+.btn-tube-blue,
+.btn-tube-blue:active {
+    color: var(--white);
+    background-color: var(--tube-blue);
+}
+
+.btn-tube-blue:hover,
+.btn-tube-blue:focus-visible {
+    color: var(--white);
+    background-color: var(--tube-blue-dark);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. HERO BANNER (index.html - matches wireframe-1)
+   WHAT: "HE [logo] RO" display, "HERO FOR HIRE" tagline and distress
+         button.
+   WHY:  The letters are spans rather than images so they stay crisp,
+         searchable and screen-reader friendly; the logo replaces the
+         middle of the word like in the sketch.
+   -------------------------------------------------------------------------- */
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem 0 4rem;
+    border-bottom: var(--ink-border);
+    /* WHY: Blue comic "speed lines" radiating behind the hero for drama. */
+    background:
+        repeating-conic-gradient(from 0deg at 50% 45%,
+            rgba(0, 25, 168, 0.10) 0deg 6deg,
+            transparent 6deg 12deg),
+        var(--paper);
+}
+
+/* WHAT: Flex row holding H, E, logo, R, O.
+   WHY:  Flexbox keeps the letters vertically centred around the logo and
+         scales nicely at every width. */
+.hero-word {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.25rem, 1.5vw, 1rem);
+    margin: 0;
+}
+
+/* WHAT: Individual yellow comic letters (H, E, R, O).
+   WHY:  A black outline + hard drop shadow = classic comic lettering.
+         The outline is built from four 1-direction text-shadows (instead
+         of the non-standard -webkit-text-stroke) so the CSS passes the W3C
+         Jigsaw validator with no errors. clamp() scales the size fluidly
+         between mobile and desktop. */
+.hero-letter {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 14vw, 11rem);
+    line-height: 1;
+    color: var(--platform-yellow);
+    text-shadow:
+        -3px -3px 0 var(--ink), 3px -3px 0 var(--ink),
+        -3px 3px 0 var(--ink), 3px 3px 0 var(--ink),
+        8px 8px 0 var(--ink);
+}
+
+/* WHAT: Alternating tilts for each letter.
+   WHY:  Small random-looking rotations make the word feel hand-lettered. */
+.hero-letter:nth-of-type(1) { transform: rotate(-8deg); }
+.hero-letter:nth-of-type(2) { transform: rotate(4deg); }
+.hero-letter:nth-of-type(3) { transform: rotate(-4deg); }
+.hero-letter:nth-of-type(4) { transform: rotate(7deg); }
+
+/* WHAT: Central shield logo inside the HERO word.
+   WHY:  Width is fluid (vw) so the whole word fits on one line on any
+         screen without overflowing. */
+.hero-logo {
+    width: clamp(120px, 28vw, 380px);
+    height: auto;
+    filter: drop-shadow(6px 6px 0 rgba(17, 17, 17, 0.85));
+}
+
+/* WHAT: "HERO FOR HIRE" tagline under the letters.
+   WHY:  Outlined white Bangers text keeps the comic style consistent. */
+.hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--white);
+    text-shadow:
+        -2px -2px 0 var(--ink), 2px -2px 0 var(--ink),
+        -2px 2px 0 var(--ink), 2px 2px 0 var(--ink),
+        5px 5px 0 var(--tube-red);
+    margin: 1rem 0 1.5rem;
+}
+
+/* WHAT: Larger version of the distress button for the hero.
+   WHY:  It is the main call-to-action on the home page. */
+.btn-hero {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    padding: 0.6rem 2.5rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. ORIGIN STORY (index.html)
+   WHAT: Framed origin image and the Superpowers & Weaknesses list.
+   WHY:  The image is framed like a comic panel; list-group items get
+         coloured badges so powers vs weaknesses can be scanned quickly.
+   -------------------------------------------------------------------------- */
+.origin-img {
+    width: 100%;
+    height: auto;
+    border: var(--ink-border);
+    box-shadow: var(--ink-shadow-lg);
+    background-color: var(--white);
+}
+
+/* WHAT: Comic-styled Bootstrap list group.
+   WHY:  Replaces Bootstrap's thin grey borders with ink borders. */
+.list-group-comic {
+    border: var(--ink-border);
+    border-radius: 0;
+    box-shadow: var(--ink-shadow);
+}
+
+.list-group-comic .list-group-item {
+    border-color: var(--ink);
+    border-width: 0 0 2px 0;
+    background-color: var(--white);
+}
+
+.list-group-comic .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+/* WHAT: Header row inside a comic list group (e.g. "Superpowers").
+   WHY:  Coloured header separates powers (blue) from weaknesses (red). */
+.list-group-comic .list-group-item.list-heading-power,
+.list-group-comic .list-group-item.list-heading-weakness {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+}
+
+.list-group-comic .list-group-item.list-heading-power {
+    background-color: var(--tube-blue);
+}
+
+.list-group-comic .list-group-item.list-heading-weakness {
+    background-color: var(--tube-red);
+}
+
+/* WHAT: Icon column for list items.
+   WHY:  Fixed width aligns the item text neatly in a column. */
+.list-icon {
+    width: 1.75rem;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. SERVICES COMIC STRIP (index.html + services.html - wireframe-2)
+   WHAT: A black "gutter" grid of image panels: 3 on top, 2 below.
+   WHY:  The dark background showing between Bootstrap columns recreates
+         the gutters between panels on a printed comic page.
+   -------------------------------------------------------------------------- */
+.comic-strip {
+    background-color: var(--ink);
+    border: var(--ink-border);
+    padding: 0.75rem;
+    box-shadow: var(--ink-shadow-lg);
+}
+
+/* WHAT: A single panel inside the strip.
+   WHY:  position: relative lets the caption box sit on top of the image;
+         overflow: hidden crops the image to the panel shape. */
+.strip-panel {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--white);
+    border: 3px solid var(--white);
+}
+
+/* WHAT: Panel images.
+   WHY:  object-fit: cover fills each panel without distortion, and the
+         fixed height keeps each row of the strip level. */
+.strip-img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* WHAT: Taller images on the 2-panel bottom row.
+   WHY:  Wider panels need extra height to keep a cinematic ratio. */
+.strip-img-wide {
+    height: 300px;
+}
+
+/* WHAT: Caption box pinned to the top-left of a panel.
+   WHY:  Labels each service like a comic narration box. */
+.strip-panel .comic-caption {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 2;
+    transform: rotate(-2deg);
+}
+
+/* WHAT: Zoom panels slightly when the whole strip link is hovered.
+   WHY:  Visual feedback that the strip is a clickable link. */
+.comic-panel-link:hover .strip-img,
+.comic-panel-link:focus-visible .strip-img {
+    transform: scale(1.04);
+}
+
+
+/* --------------------------------------------------------------------------
+   9. SERVICE TIERS (Bronze / Silver / Gold)
+   WHAT: Card header colours for each pricing tier.
+   WHY:  Metal-coloured headers let users tell tiers apart at a glance.
+   -------------------------------------------------------------------------- */
+.tier-card {
+    height: 100%;
+}
+
+.tier-card .card-header {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    border-bottom: var(--ink-border);
+    border-radius: 0;
+    color: var(--ink);
+}
+
+.tier-bronze .card-header { background: linear-gradient(135deg, #e8a066, #a0522d); }
+.tier-silver .card-header { background: linear-gradient(135deg, #f4f4f4, #a8a9ad); }
+.tier-gold   .card-header { background: linear-gradient(135deg, #fff3a0, #d4a017); }
+
+/* WHAT: Big comic price text.
+   WHY:  Price is the key fact on each tier card. */
+.tier-price {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--tube-red);
+    line-height: 1;
+}
+
+/* WHAT: Small inline tier badges used in summaries.
+   WHY:  Compact visual label for Bronze/Silver/Gold in running text. */
+.tier-badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    border: 2px solid var(--ink);
+    padding: 0 0.5rem;
+    color: var(--ink);
+}
+
+.tier-badge.tier-bronze { background-color: #e8a066; }
+.tier-badge.tier-silver { background-color: #d9d9dc; }
+.tier-badge.tier-gold   { background-color: #ffd700; }
+
+/* WHAT: Individual service detail card image (services.html).
+   WHY:  Consistent image height across the service detail cards. */
+.service-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: var(--ink-border);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. DISTRESS SIGNAL CARD (index.html)
+   WHAT: Clickable SOS card linking to the contact page.
+   WHY:  Red header + SOS image makes the emergency contact route obvious.
+   -------------------------------------------------------------------------- */
+.distress-card .card-header {
+    background-color: var(--tube-red);
+    color: var(--white);
+    border-bottom: var(--ink-border);
+    border-radius: 0;
+}
+
+.distress-img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+
+/* --------------------------------------------------------------------------
+   11. FORMS (services.html + contact.html)
+   WHAT: Comic-styled Bootstrap form controls and labels.
+   WHY:  Thick borders match the panels; labels use Bangers for character
+         but inputs keep the body font so typed text is easy to read.
+   -------------------------------------------------------------------------- */
+.form-comic .form-label {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.form-comic .form-control,
+.form-comic .form-select {
+    border: 3px solid var(--ink);
+    border-radius: 0;
+    background-color: var(--white);
+}
+
+.form-comic .form-control:focus,
+.form-comic .form-select:focus {
+    border-color: var(--tube-blue);
+    background-color: #fffdf3;
+}
+
+/* WHAT: Comic checkbox/radio inputs.
+   WHY:  Default Bootstrap checks are thin; ink borders match the theme. */
+.form-comic .form-check-input {
+    border: 2px solid var(--ink);
+}
+
+.form-comic .form-check-input:checked {
+    background-color: var(--tube-red);
+    border-color: var(--ink);
+}
+
+/* WHAT: Hidden Web3Forms honeypot field.
+   WHY:  Bots fill in every field; humans never see this one, so Web3Forms
+         can reject spam. Hidden visually but kept out of the tab order in
+         HTML with tabindex="-1". */
+.hp-field {
+    display: none;
+}
+
+/* WHAT: Contact detail list on contact.html.
+   WHY:  Icons line up with text for quick scanning. */
+.contact-detail-list li {
+    margin-bottom: 0.75rem;
+}
+
+.contact-detail-list .fa-solid,
+.contact-detail-list .fa-brands {
+    width: 1.75rem;
+    color: var(--tube-red);
+}
+
+
+/* --------------------------------------------------------------------------
+   12. SUB-PAGE HEADER (services / contact / thank-you)
+   WHAT: Comic banner at the top of inner pages.
+   WHY:  Gives each page a clear title (h1) in the same visual language as
+         the home hero but much shorter, so content stays above the fold.
+   -------------------------------------------------------------------------- */
+.page-header {
+    padding: 3rem 0 2rem;
+    text-align: center;
+    border-bottom: var(--ink-border);
+    background:
+        repeating-conic-gradient(from 0deg at 50% 50%,
+            rgba(220, 36, 31, 0.10) 0deg 6deg,
+            transparent 6deg 12deg),
+        var(--paper);
+}
+
+.page-title {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    color: var(--platform-yellow);
+    text-shadow:
+        -2px -2px 0 var(--ink), 2px -2px 0 var(--ink),
+        -2px 2px 0 var(--ink), 2px 2px 0 var(--ink),
+        6px 6px 0 var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.page-lead {
+    font-size: 1.15rem;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+
+/* --------------------------------------------------------------------------
+   13. FOOTER (shared on every page)
+   WHAT: Navy footer with a yellow platform-edge stripe, joke Tube copy,
+         social icons and a small copyright line.
+   WHY:  Dark background visually closes the page; the copyright uses the
+         plain body font at small size as the brief requires.
+   -------------------------------------------------------------------------- */
+.footer-tube {
+    color: var(--white);
+    background-color: var(--tube-blue-dark);
+    border-top: 10px solid var(--platform-yellow);
+    padding: 2.5rem 0 1.5rem;
+}
+
+.footer-tube .footer-heading {
+    color: var(--platform-yellow);
+    font-size: 1.6rem;
+}
+
+.footer-tube a {
+    color: var(--platform-yellow);
+}
+
+.footer-tube a:hover,
+.footer-tube a:focus-visible {
+    color: var(--white);
+}
+
+/* WHAT: Circular social icon buttons, styled like mini roundels.
+   WHY:  Large tap targets (48px) for mobile accessibility. */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    color: var(--white);
+    background-color: var(--tube-blue);
+    border: 4px solid var(--tube-red);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+    color: var(--ink);
+    background-color: var(--platform-yellow);
+    transform: rotate(-12deg) scale(1.1);
+}
+
+/* WHAT: Small copyright line in the standard body font.
+   WHY:  Legal text should be plain and readable, not comic lettering. */
+.footer-copy {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #c9d1ff;
+    margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   14. NAVBAR: WIDE DESKTOP (1200px and up - Bootstrap "xl" breakpoint)
+   WHAT: Taller navbar that grows with the screen width, with the links
+         pinned to the top edge.
+   WHY:  At desktop widths the photo is scaled to the full screen width,
+         so the navbar height must grow too (clamp + vw) to show all of
+         the "MIND THE GAP" lettering. Pinning the links to the top places
+         them on the light tile strip of the photo, ABOVE the lettering,
+         so they never cover the centre text.
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+    .navbar-platform {
+        min-height: clamp(150px, 13vw, 240px);
+        background-position: center top;
+        align-items: stretch;
+    }
+
+    .navbar-platform .navbar-collapse {
+        align-self: flex-start;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   15. REDUCED MOTION
+   WHAT: Turns off hover animations for users who request less motion.
+   WHY:  Accessibility - respects the operating system setting.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE: HAMBURGER MENU (below 1200px - Bootstrap "xl")
+   WHAT: Styling for the collapsed (hamburger) menu.
+   WHY:  The navbar uses navbar-expand-xl, so below 1200px the links
+         collapse into the hamburger. Below that width there is no room
+         for the links beside the centre "MIND THE GAP" text.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+    /* WHY: When the hamburger menu opens, give the links a solid panel
+            behind them so they don't float over the photo unreadably. */
+    .navbar-platform .navbar-collapse {
+        background-color: rgba(17, 17, 17, 0.85);
+        border: 3px solid var(--ink);
+        margin-top: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .navbar-platform .nav-link {
+        text-align: center;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   17. RESPONSIVE: TABLET (below 992px - Bootstrap "lg" breakpoint)
+   WHAT: Shorter navbar and smaller comic-strip panels.
+   WHY:  Desktop is the primary design; these rules scale it down cleanly.
+         The navbar image keeps background-position: center so the
+         "MIND THE GAP" text stays visible while the edges are cropped.
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .navbar-platform {
+        min-height: 90px;
+    }
+
+    .navbar-logo {
+        height: 64px;
+    }
+
+    .strip-img,
+    .strip-img-wide {
+        height: 200px;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   18. RESPONSIVE: MOBILE (below 576px - Bootstrap "sm" breakpoint)
+   WHAT: Thinner borders, smaller shadows and tighter spacing.
+   WHY:  Heavy 10px shadows eat too much space on narrow screens and can
+         cause horizontal scrolling.
+   -------------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+    :root {
+        --ink-shadow: 4px 4px 0 var(--ink);
+        --ink-shadow-lg: 6px 6px 0 var(--ink);
+    }
+
+    .comic-section {
+        padding: 2.5rem 0;
+    }
+
+    .navbar-platform {
+        min-height: 76px;
+    }
+
+    .navbar-logo {
+        height: 52px;
+    }
+
+    .hero-letter {
+        text-shadow:
+            -2px -2px 0 var(--ink), 2px -2px 0 var(--ink),
+            -2px 2px 0 var(--ink), 2px 2px 0 var(--ink),
+            4px 4px 0 var(--ink);
+    }
+
+    .roundel-title {
+        padding: 0.2rem 1rem;
+    }
+
+    .roundel-title::before {
+        width: 4rem;
+        height: 4rem;
+        border-width: 10px;
+    }
+
+    .speech-bubble {
+        padding: 1.25rem;
+    }
+
+    .strip-img,
+    .strip-img-wide {
+        height: 180px;
+    }
+}

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- WHAT: Character set and responsive viewport. WHY: Correct text encoding and proper scaling on mobile devices. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WHAT: SEO description and keywords. WHY: Helps search engines and link previews describe the page. -->
+    <meta name="description" content="Mind the Gap Man's heroic services and pricing: Bronze, Silver and Gold rescue tiers, from spider removal and jar opening to full arch-nemesis defeat across London. Request a rescue online.">
+    <meta name="keywords" content="Mind the Gap Man, superhero for hire, London, hero services, distress signal, London Underground">
+    <meta name="author" content="cyberjkb">
+    <title>Mind the Gap Man | Services &amp; Pricing</title>
+
+    <!-- WHAT: Site favicon (SVG roundel). WHY: Brand icon in the browser tab and bookmarks. -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+
+    <!-- WHAT: Google Fonts - Bangers (comic headings) and Open Sans (body). WHY: Comic lettering for display text, plain readable font for paragraphs. preconnect speeds up the font download. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
+    <!-- WHAT: Bootstrap 5.3.3 CSS (stable release). WHY: Responsive grid, navbar, cards, list groups and form components. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- WHAT: Font Awesome kit. WHY: Social media and contact icons. -->
+    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous"></script>
+
+    <!-- WHAT: Custom stylesheet, loaded last. WHY: So the comic theme overrides Bootstrap defaults. -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- WHAT: Site header containing the main navigation. WHY: Semantic <header>/<nav> landmarks help screen readers; the platform-floor photo background matches wireframe-1. -->
+    <header>
+        <!-- WHAT: Bootstrap responsive navbar (expands at the xl breakpoint, 1200px). WHY: Full link row on desktop, hamburger menu on tablet and mobile. -->
+        <nav class="navbar navbar-expand-xl navbar-platform" aria-label="Main navigation">
+            <div class="container-fluid px-3 px-lg-4">
+                <!-- WHAT: Brand logo linking home. WHY: Standard UX convention - clicking the logo returns to the home page. -->
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
+                </a>
+                <!-- WHAT: Hamburger toggle (Bootstrap collapse). WHY: Collapses links into a menu on tablet/mobile; powered by the Bootstrap bundle, no custom JS. -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- WHAT: Navigation links. WHY: ms-auto pushes them right so the centre "MIND THE GAP" floor text stays visible. -->
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Distress Signal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- WHAT: Main page content landmark. WHY: Lets screen-reader and keyboard users skip straight past the navigation to the services. -->
+    <main>
+        <!-- WHAT: Sub-page comic banner with the single page h1 and a funny intro. WHY: Tells users instantly which page they are on, in the same visual language as the home hero. -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title"><span class="comic-tilt">Heroic</span> Services</h1>
+                <p class="page-lead">From eight-legged intruders to evil masterminds, Mind the Gap Man handles London's smallest emergencies with the biggest possible drama. Pick your peril, pick your tier, and please stand clear of the closing cape.</p>
+            </div>
+        </section>
+
+        <!-- WHAT: Service details grid (one card per rescue). WHY: Gives each service its own image, description, tier and response time so users can compare them at a glance; mirrors the comic strip panels in wireframe-2. -->
+        <section id="service-list" class="comic-section">
+            <div class="container">
+                <!-- WHAT: Centred roundel section heading. WHY: The roundel title is inline-block, so a text-center wrapper centres it. -->
+                <div class="text-center">
+                    <h2 class="roundel-title">The Rescues</h2>
+                </div>
+
+                <!-- WHAT: Responsive card grid. WHY: 1 column on mobile, 2 on tablet and 3 on desktop for a tidy 3 x 2 comic page layout. -->
+                <div class="row g-4">
+                    <!-- WHAT: Spider Removal service card. WHY: Bronze tier entry level rescue, matches the first strip panel. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <img src="assets/images/spider-removal-transparent.webp" class="service-card-img" alt="Comic illustration of a hairy spider next to a no-entry sign reading Removal" width="840" height="472" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">Spider Removal</h3>
+                                <p class="card-text">A spider the size of a Zone 1 rent bill has claimed your bath. Mind the Gap Man arrives, negotiates calmly, then carries it outside in a commemorative Oyster card holder. No spiders are harmed. Your dignity, however, is not guaranteed.</p>
+                                <p class="mb-1"><span class="tier-badge tier-bronze">Bronze Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> by the next Tube (usually 2&ndash;3 minutes, longer on the Northern line).</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Cat in a Tree service card. WHY: Silver tier classic hero job, matches the second strip panel. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <img src="assets/images/cat-stuck-in-a-tree-transparent.webp" class="service-card-img" alt="Comic illustration of a startled cat stuck at the top of a tree" width="1050" height="590" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">Cat in a Tree</h3>
+                                <p class="card-text">Your cat has climbed a plane tree and is now pretending it has never met you. Our hero scales the trunk using only upper body strength and Tube strap experience, then returns the cat, who will immediately climb back up.</p>
+                                <p class="mb-1"><span class="tier-badge tier-silver">Silver Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> under 30 minutes.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Wi-Fi Down service card. WHY: Silver tier modern day emergency, matches the third strip panel. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <img src="assets/images/wifi-down-transparent.webp" class="service-card-img" alt="Comic lettering reading Wi-Fi Down with a broken signal symbol" width="1260" height="708" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">Wi-Fi Fixing</h3>
+                                <p class="card-text">Buffering wheel of doom? Mind the Gap Man bravely turns the router off and on again, stares sternly at the blinking lights and, if needed, stands heroically closer to the window holding your laptop aloft.</p>
+                                <p class="mb-1"><span class="tier-badge tier-silver">Silver Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> under 30 minutes.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Arch-Nemesis Defeat service card. WHY: Gold tier flagship rescue, matches the wide bottom strip panel with the BANG! effect. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <img src="assets/images/arch-nemesis.webp" class="service-card-img" alt="Comic illustration of Mind the Gap Man firing laser eyes at a skull and crossbones villain with a BANG! burst" width="1367" height="768" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">Arch-Nemesis Defeat</h3>
+                                <p class="card-text">A cackling villain is threatening the city, or at least your street. Our hero deploys laser eyes, a dramatic "BANG!" and a short speech about passenger etiquette. Cape billowing is included at no extra charge.</p>
+                                <p class="mb-1"><span class="tier-badge tier-gold">Gold Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> immediately, faster than a Victoria line train.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Jar Opening service card. WHY: Bronze tier everyday rescue, matches the final strip panel. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <img src="assets/images/jar.webp" class="service-card-img" alt="Comic illustration of a flexing arm above a stubborn, tightly sealed jar" width="1050" height="590" loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title">Jar Opening</h3>
+                                <p class="card-text">The pickle jar has defeated you, your flatmate and a tea towel. Mind the Gap Man applies one superhuman twist, a satisfying "POP!" and a modest nod. He will not judge you for running the lid under the hot tap first.</p>
+                                <p class="mb-1"><span class="tier-badge tier-bronze">Bronze Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> by the next Tube (usually 2&ndash;3 minutes, longer on the Northern line).</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Queue Jumping service card (icon instead of photo). WHY: Completes the Silver tier offer from the brief and fills the grid to a neat 3 x 2 layout. -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card comic-panel h-100">
+                            <!-- WHAT: Icon and starburst in place of an image. WHY: No artwork exists for this service, so a Font Awesome icon and CSS sound effect keep the comic feel. -->
+                            <div class="text-center p-4 border-bottom border-4 border-dark">
+                                <i class="fa-solid fa-person-running fa-4x text-primary me-3" aria-hidden="true"></i>
+                                <span class="sfx-burst" aria-hidden="true">ZOOM!</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Queue Jumping</h3>
+                                <p class="card-text">Stuck in the queue for brunch, the post office or the Oxford Circus escalators? Our hero politely, yet heroically, gets you to the front. Results not valid at Wimbledon, where queueing is a sacred art.</p>
+                                <p class="mb-1"><span class="tier-badge tier-silver">Silver Tier</span></p>
+                                <p class="mb-0"><strong>Response time:</strong> under 30 minutes.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT: Decorative yellow and black platform-edge divider. WHY: Visually separates the services from the pricing; hidden from screen readers as it carries no meaning. -->
+        <hr class="gap-stripe" aria-hidden="true">
+
+        <!-- WHAT: Pricing tiers section (Bronze, Silver, Gold). WHY: The brief requires clear tiered pricing; metal-coloured card headers make each tier easy to tell apart. -->
+        <section id="pricing" class="comic-section">
+            <div class="container">
+                <!-- WHAT: Centred roundel section heading. WHY: Consistent section titles across the site. -->
+                <div class="text-center">
+                    <h2 class="roundel-title">Pricing Tiers</h2>
+                </div>
+
+                <!-- WHAT: Three tier cards side by side. WHY: Stacks on mobile and shows all three in a row from tablet up for easy comparison. -->
+                <div class="row g-4">
+                    <!-- WHAT: Bronze tier card. WHY: Entry level price for small everyday rescues. -->
+                    <div class="col-12 col-md-4">
+                        <article class="card comic-panel tier-card tier-bronze">
+                            <h3 class="card-header mb-0">Bronze Tier</h3>
+                            <div class="card-body">
+                                <p class="tier-price text-center">&pound;19 <small class="fs-5">per rescue</small></p>
+                                <ul>
+                                    <li>Spider Removal</li>
+                                    <li>Jar Opening</li>
+                                </ul>
+                                <p><strong>Response time:</strong> by the next Tube (usually 2&ndash;3 minutes, longer on the Northern line).</p>
+                                <p class="small text-muted mb-0">Small print: hero may wince slightly at larger spiders. Wincing is included in the price.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Silver tier card. WHY: Mid-range tier bundling all Bronze services plus bigger rescues. -->
+                    <div class="col-12 col-md-4">
+                        <article class="card comic-panel tier-card tier-silver">
+                            <h3 class="card-header mb-0">Silver Tier</h3>
+                            <div class="card-body">
+                                <p class="tier-price text-center">&pound;49 <small class="fs-5">per rescue</small></p>
+                                <ul>
+                                    <li>Queue Jumping</li>
+                                    <li>Wi-Fi Fixing</li>
+                                    <li>Cat-in-a-Tree retrieval</li>
+                                    <li>Includes all Bronze services</li>
+                                </ul>
+                                <p><strong>Response time:</strong> under 30 minutes.</p>
+                                <p class="small text-muted mb-0">Small print: the cat will not say thank you. Cats never do.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- WHAT: Gold tier card. WHY: Premium tier for the full superhero experience, including every lower tier service. -->
+                    <div class="col-12 col-md-4">
+                        <article class="card comic-panel tier-card tier-gold">
+                            <h3 class="card-header mb-0">Gold Tier</h3>
+                            <div class="card-body">
+                                <p class="tier-price text-center">&pound;199 <small class="fs-5">per rescue</small></p>
+                                <ul>
+                                    <li>Full Arch-Nemesis Defeat (laser eyes, dramatic "BANG!")</li>
+                                    <li>Includes all Silver services</li>
+                                    <li>Includes all Bronze services</li>
+                                </ul>
+                                <p><strong>Response time:</strong> immediately, faster than a Victoria line train.</p>
+                                <p class="small text-muted mb-0">Small print: cape billowing at no extra charge. Wind machine not included on still days.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- WHAT: Tier comparison table. WHY: A structured side-by-side view of which services each tier includes; table-responsive stops it overflowing on small screens. -->
+                <div class="table-responsive comic-panel mt-5 p-3">
+                    <table class="table table-bordered align-middle text-center mb-0">
+                        <caption>Which services are included in each tier (a tick means included)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Service</th>
+                                <th scope="col"><span class="tier-badge tier-bronze">Bronze &pound;19</span></th>
+                                <th scope="col"><span class="tier-badge tier-silver">Silver &pound;49</span></th>
+                                <th scope="col"><span class="tier-badge tier-gold">Gold &pound;199</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Spider Removal</th>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Jar Opening</th>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Queue Jumping</th>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wi-Fi Fixing</th>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cat-in-a-Tree Retrieval</th>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Full Arch-Nemesis Defeat</th>
+                                <td>No</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Response time</th>
+                                <td>Next Tube (2&ndash;3 mins)</td>
+                                <td>Under 30 mins</td>
+                                <td>Immediately</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT: Decorative yellow and black platform-edge divider. WHY: Separates pricing from the request form; hidden from screen readers. -->
+        <hr class="gap-stripe" aria-hidden="true">
+
+        <!-- WHAT: Rescue request form section. WHY: Lets users book a rescue straight after choosing a tier. There is NO payment or basket: the hero confirms every booking by email. -->
+        <section id="request" class="comic-section">
+            <div class="container">
+                <!-- WHAT: Centred roundel section heading. WHY: Consistent section titles across the site. -->
+                <div class="text-center">
+                    <h2 class="roundel-title">Request a Rescue</h2>
+                </div>
+
+                <!-- WHAT: Comic panel wrapping the form. WHY: Frames the form like a comic page and limits its width on large screens for readability. -->
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="comic-panel p-4">
+                            <!-- WHAT: Note explaining there is no online payment. WHY: Sets expectations; this is a request form only and the hero confirms by email. -->
+                            <p class="small mb-4"><strong>No payment is taken online and there is no basket.</strong> Send your request and Mind the Gap Man will confirm your rescue, tier and price by email. Fields marked * are required.</p>
+
+                            <!-- WHAT: Web3Forms submission endpoint. WHY: Lets a static site send form data by email with no server or JavaScript. -->
+                            <form class="form-comic" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- ACCESS KEY: replace YOUR_ACCESS_KEY_HERE with your free key from https://web3forms.com -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                                <!-- REDIRECT: after a successful submit Web3Forms sends the user to this page. Must be the full live URL. -->
+                                <input type="hidden" name="redirect" value="https://cyberjkb.github.io/mind-the-gap/thank-you.html">
+                                <!-- SUBJECT: email subject line the hero receives for each request. -->
+                                <input type="hidden" name="subject" value="New Rescue Request - Mind the Gap Man">
+                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it -->
+                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1">
+
+                                <!-- WHAT: Contact details row (name and email). WHY: Required so the hero can reply to confirm the rescue. -->
+                                <div class="row g-3">
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-name" class="form-label">Your Name *</label>
+                                        <input type="text" class="form-control" id="request-name" name="name" autocomplete="name" placeholder="e.g. Ada Lovelace" required>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="request-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                                    </div>
+
+                                    <!-- WHAT: Optional phone number. WHY: Useful for urgent rescues but not essential. -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-phone" class="form-label">Phone (optional)</label>
+                                        <input type="tel" class="form-control" id="request-phone" name="phone" autocomplete="tel" placeholder="e.g. 020 7946 0000">
+                                    </div>
+
+                                    <!-- WHAT: Tier selector. WHY: Links the request to one of the priced tiers above; the disabled placeholder forces a real choice. -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-tier" class="form-label">Rescue Tier *</label>
+                                        <select class="form-select" id="request-tier" name="tier" required>
+                                            <option value="" disabled selected>Choose your tier...</option>
+                                            <option value="Bronze £19">Bronze &pound;19</option>
+                                            <option value="Silver £49">Silver &pound;49</option>
+                                            <option value="Gold £199">Gold &pound;199</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- WHAT: Service selector. WHY: Tells the hero exactly which rescue is needed. -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-service" class="form-label">Service Needed *</label>
+                                        <select class="form-select" id="request-service" name="service" required>
+                                            <option value="" disabled selected>Choose a rescue...</option>
+                                            <option value="Spider Removal">Spider Removal (Bronze)</option>
+                                            <option value="Jar Opening">Jar Opening (Bronze)</option>
+                                            <option value="Queue Jumping">Queue Jumping (Silver)</option>
+                                            <option value="Wi-Fi Fixing">Wi-Fi Fixing (Silver)</option>
+                                            <option value="Cat in a Tree">Cat in a Tree (Silver)</option>
+                                            <option value="Arch-Nemesis Defeat">Arch-Nemesis Defeat (Gold)</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- WHAT: Preferred arrival method selector. WHY: A fun touch that keeps the parody tone inside the form. -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="request-arrival" class="form-label">Preferred Arrival Method</label>
+                                        <select class="form-select" id="request-arrival" name="arrival_method">
+                                            <option value="Swinging from Tube straps" selected>Swinging from Tube straps</option>
+                                            <option value="Flying (weather permitting)">Flying (weather permitting)</option>
+                                            <option value="Arriving by Night Bus">Arriving by Night Bus</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- WHAT: Crisis level radio group in a fieldset with legend. WHY: Grouping radios under a legend is the accessible, W3C valid way to label a set of options. -->
+                                    <div class="col-12">
+                                        <fieldset>
+                                            <legend class="form-label">Crisis Level *</legend>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="crisis_level" id="crisis-mild" value="Mild Inconvenience" required>
+                                                <label class="form-check-label" for="crisis-mild">Mild Inconvenience</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="crisis_level" id="crisis-proper" value="Proper Crisis">
+                                                <label class="form-check-label" for="crisis-proper">Proper Crisis</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="crisis_level" id="crisis-total" value="Total Catastrophe">
+                                                <label class="form-check-label" for="crisis-total">Total Catastrophe</label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
+                                    <!-- WHAT: Location field. WHY: The hero needs to know where to turn up; the nearest Tube station keeps it on theme. -->
+                                    <div class="col-12">
+                                        <label for="request-location" class="form-label">Location / Coordinates *</label>
+                                        <input type="text" class="form-control" id="request-location" name="location" placeholder="Nearest Tube station, e.g. Bank" required>
+                                    </div>
+
+                                    <!-- WHAT: Free text message. WHY: Room for the user to describe the emergency in their own words. -->
+                                    <div class="col-12">
+                                        <label for="request-message" class="form-label">Describe Your Emergency *</label>
+                                        <textarea class="form-control" id="request-message" name="message" rows="5" placeholder="The spider is looking at me. Please hurry." required></textarea>
+                                    </div>
+
+                                    <!-- WHAT: Required consent checkbox. WHY: Users agree to be contacted by email before the request is sent (good data protection practice). -->
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="request-consent" name="consent" value="Yes" required>
+                                            <label class="form-check-label" for="request-consent">I agree to be contacted by email about this rescue and understand no payment is taken online. *</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- WHAT: Submit button. WHY: Blue comic button sends the request to Web3Forms, which emails the hero and redirects to the thank-you page. -->
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-comic btn-tube-blue">Send Request</button>
+                                        <p class="small text-muted mt-3 mb-0">The hero will confirm your booking by email. No basket, no checkout, no capes were charged.</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WHAT: Site footer with Tube-themed jokes, fake social links and copyright. WHY: Consistent closing section on every page; navy + yellow stripe echoes the platform edge. -->
+    <footer class="footer-tube mt-5">
+        <div class="container text-center">
+            <!-- WHAT: Humorous Tube-style announcement. WHY: Keeps the parody tone right to the bottom of the page. -->
+            <h2 class="footer-heading">Please Mind The Gap Man</h2>
+            <p class="mb-1">This hero is now arriving. Please stand clear of the cape.</p>
+            <p class="mb-1">Rescues on the Northern line are subject to delays. Rescues on the Waterloo &amp; City line are only available Monday to Friday.</p>
+            <!-- WHAT: Social media icon links (Font Awesome). WHY: Fake hero profiles point to each platform's homepage; aria-labels describe icon-only links for screen readers; open in a new tab so users don't lose the site. -->
+            <ul class="footer-social">
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a href="https://x.com/" target="_blank" rel="noopener" aria-label="X, formerly Twitter (opens in a new tab)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a></li>
+            </ul>
+            <!-- WHAT: Copyright and parody disclaimer in small plain text. WHY: Legal-style text should be readable, not comic lettering. -->
+            <p class="footer-copy">&copy; 2026 Mind the Gap Man. A parody project for educational purposes. Not affiliated with Transport for London. No real heroes were harmed in the making of this website.</p>
+        </div>
+    </footer>
+
+    <!-- WHAT: Bootstrap 5.3.3 JS bundle (includes Popper). WHY: Required only for the navbar hamburger collapse; this is Bootstrap's own script, no custom JavaScript is used. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
