@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <!-- WHAT: Character set and responsive viewport. WHY: Correct text encoding and proper scaling on mobile devices. -->
@@ -140,14 +140,11 @@
                         </article>
                     </div>
 
-                    <!-- WHAT: Queue Jumping service card (icon instead of photo). WHY: Completes the Silver tier offer from the brief and fills the grid to a neat 3 x 2 layout. -->
+                    <!-- WHAT: Queue Jumping service card. WHY: Completes the Silver tier offer from the brief and fills the grid to a neat 3 x 2 layout. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <!-- WHAT: Icon and starburst in place of an image. WHY: No artwork exists for this service, so a Font Awesome icon and CSS sound effect keep the comic feel. -->
-                            <div class="text-center p-4 border-bottom border-4 border-dark">
-                                <i class="fa-solid fa-person-running fa-4x text-primary me-3" aria-hidden="true"></i>
-                                <span class="sfx-burst" aria-hidden="true">ZOOM!</span>
-                            </div>
+                            <!-- WHAT: Comic illustration of the hero escorting an elderly passenger past a Tube queue. WHY: Shows the service visually, matching the other five cards. -->
+                            <img src="assets/images/queue-jumping.webp" class="service-card-img" width="1367" height="768" loading="lazy" alt="Comic panel of Mind the Gap Man holding an Official Queue-Jump Protocol sign and helping an elderly man past a long queue on a Tube platform while amazed commuters watch">
                             <div class="card-body">
                                 <h3 class="card-title">Queue Jumping</h3>
                                 <p class="card-text">Stuck in the queue for brunch, the post office or the Oxford Circus escalators? Our hero politely, yet heroically, gets you to the front. Results not valid at Wimbledon, where queueing is a sacred art.</p>
@@ -228,13 +225,15 @@
                 <!-- WHAT: Tier comparison table. WHY: A structured side-by-side view of which services each tier includes; table-responsive stops it overflowing on small screens. -->
                 <div class="table-responsive comic-panel mt-5 p-3">
                     <table class="table table-bordered align-middle text-center mb-0">
-                        <caption>Which services are included in each tier (a tick means included)</caption>
+                        <!-- WHAT: Screen-reader-only table caption. WHY: Keeps the table accessible (assistive tech announces what it compares) without showing visible text. -->
+                        <caption class="visually-hidden">Service tier comparison</caption>
                         <thead>
                             <tr>
                                 <th scope="col">Service</th>
-                                <th scope="col"><span class="tier-badge tier-bronze">Bronze &pound;19</span></th>
-                                <th scope="col"><span class="tier-badge tier-silver">Silver &pound;49</span></th>
-                                <th scope="col"><span class="tier-badge tier-gold">Gold &pound;199</span></th>
+                                <!-- WHAT: Tier name and price on separate lines (d-block). WHY: Keeps all three header badges the same two-line shape at every screen size. -->
+                                <th scope="col"><span class="tier-badge tier-bronze">Bronze <span class="d-block">&pound;19</span></span></th>
+                                <th scope="col"><span class="tier-badge tier-silver">Silver <span class="d-block">&pound;49</span></span></th>
+                                <th scope="col"><span class="tier-badge tier-gold">Gold <span class="d-block">&pound;199</span></span></th>
                             </tr>
                         </thead>
                         <tbody>

@@ -155,21 +155,15 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 
 ## User Story Testing
 
-| User story | How the site meets it | Evidence | Result |
+| User story ([project board](https://github.com/users/cyberjkb/projects/7)) | How the site meets it | Evidence | Result |
 | --- | --- | --- | --- |
-| **M1:** Understand who the hero is straight away | HERO banner and tagline at the top of the home page, followed by the origin story | `docs/testing-images/story-m1.webp` | ⬜ To confirm |
-| **M2:** See services and prices | Services comic strip and tier summary on Home, and detail cards on Services | `docs/testing-images/story-m2.webp` | ⬜ To confirm |
-| **M3:** Compare tiers side by side | Three tier cards and a comparison table on Services | `docs/testing-images/story-m3.webp` | ⬜ To confirm |
-| **M4:** Send a distress signal and get confirmation | Web3Forms forms on Services and Contact, with a redirect to Thank You | `docs/testing-images/story-m4.webp` | ⬜ To confirm |
-| **M5:** Navigate on any device | Responsive navbar with hamburger menu and a Bootstrap grid | See [Responsiveness](#responsiveness-testing) | ⬜ To confirm |
-| **M6:** Accessible content | Alt text, labels, landmarks and contrast | See [Accessibility](#accessibility-testing) | ⬜ To confirm |
-| **M7:** Consistent comic brand | Shared navbar, footer, fonts and palette on every page | `docs/testing-images/story-m7.webp` | ⬜ To confirm |
-| **S1:** Superpowers and weaknesses | List group in the Origin Story section | `docs/testing-images/story-s1.webp` | ⬜ To confirm |
-| **S2:** Response times | Stated on each tier card | `docs/testing-images/story-s2.webp` | ⬜ To confirm |
-| **S3:** Always-reachable distress CTA | "Distress Signal" nav link on every page, plus the hero button and SOS card | `docs/testing-images/story-s3.webp` | ⬜ To confirm |
-| **S4:** Social links | Footer icons on every page open in a new tab | `docs/testing-images/story-s4.webp` | ⬜ To confirm |
-| **S5:** HQ details and hours | Contact page detail list | `docs/testing-images/story-s5.webp` | ⬜ To confirm |
-| **C1–C4:** Could-Have | Not built in this release (see README › Future Features) | – | Deferred |
+| **#1 (Must):** Easy navigation and responsive design | Shared navbar (Home, Services, Distress Signal) with a hamburger menu below 1200px, and a Bootstrap grid on every page | See [Responsiveness](#responsiveness-testing) | ⬜ To confirm |
+| **#2 (Must):** Origin story and engaging imagery | HERO banner with logo, slogan and tagline, then the Origin Story artwork and "Bitten by code..." backstory | `docs/testing-images/story-2.webp` | ⬜ To confirm |
+| **#3 (Must):** Service tiers and pricing on a separate page | `services.html`: six image cards (side by side on desktop, stacked on mobile), three priced tier cards and a comparison table | `docs/testing-images/story-3.webp` | ⬜ To confirm |
+| **#5 (Must):** Emergency distress signal form | Contact form with required fields; a successful submit redirects to `thank-you.html` | `docs/testing-images/story-5.webp` | ⬜ To confirm |
+| **#6 (Should):** Operating hours, zones and contact details | Hero HQ card on the contact page (hotline, email, HQ address, hours); zone limit in the Weaknesses list | `docs/testing-images/story-6.webp` | ⬜ To confirm |
+| **#8 (Could):** "What I won't do" boundaries | Superpowers & Weaknesses list groups on the home page | `docs/testing-images/story-8.webp` | ⬜ To confirm |
+| **#9 (Could):** Night / day mode switch | Not built in this release (see README › Future Features) | – | Deferred |
 
 ---
 
@@ -320,17 +314,19 @@ Lighthouse reports were generated in Chrome DevTools (incognito window, to avoid
 
 ### Colour Contrast Checks
 
-Checked with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/). The ratios are approximate. Confirm each one with the tool and record the exact figure.
+Ratios were calculated with the WCAG 2.1 relative-luminance formula for the dark theme palette. Re-check them with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) and add a screenshot.
 
-| Foreground | Background | Used for | Approx. ratio | WCAG AA (normal / large) | Result |
+| Foreground | Background | Used for | Ratio | WCAG AA (normal / large) | Result |
 | --- | --- | --- | --- | --- | --- |
-| `--ink` #111111 | `--paper` #fff8e7 | Body text | ~18:1 | Pass / Pass | ⬜ To confirm |
-| `--ink` #111111 | `--platform-yellow` #ffd300 | Comic buttons, captions | ~13:1 | Pass / Pass | ⬜ To confirm |
-| #ffffff | `--tube-blue-dark` #000f66 | Footer text | ~17:1 | Pass / Pass | ⬜ To confirm |
-| `--platform-yellow` #ffd300 | `--tube-blue-dark` #000f66 | Footer heading and links | ~12:1 | Pass / Pass | ⬜ To confirm |
-| #ffffff | `--tube-blue` #0019a8 | Blue buttons | ~12:1 | Pass / Pass | ⬜ To confirm |
-| #ffffff | `--tube-red` #dc241f | Distress buttons | ~5:1 | Pass / Pass | ⬜ To confirm |
-| `--tube-blue` #0019a8 | `--paper` #fff8e7 | Headings | ~11:1 | Pass / Pass | ⬜ To confirm |
+| `--text` #e7e9f2 | `--night` #07080d | Body text | 16.5:1 | Pass / Pass | ⬜ To confirm |
+| `--text` #e7e9f2 | `--panel` #11131c | Card and panel text | 15.3:1 | Pass / Pass | ⬜ To confirm |
+| `--text-muted` #a3abc2 | `--panel` #11131c | Small print, secondary text | 8.1:1 | Pass / Pass | ⬜ To confirm |
+| `--neon-cyan` #00f0ff | `--panel` #11131c | Links | 13.1:1 | Pass / Pass | ⬜ To confirm |
+| `--platform-yellow` #ffd300 | `--panel` #11131c | Form labels, prices, footer heading | 12.9:1 | Pass / Pass | ⬜ To confirm |
+| #000000 | `--platform-yellow` #ffd300 | Comic buttons, captions | 14.6:1 | Pass / Pass | ⬜ To confirm |
+| #ffffff | `--tube-red` #e3192d | Distress buttons, active nav link | 4.7:1 | Pass / Pass | ⬜ To confirm |
+| #ffffff | `--tube-blue` #2d5bff | Blue buttons, Superpowers header | 5.2:1 | Pass / Pass | ⬜ To confirm |
+| #ffffff | `--tube-blue-dark` #0b1440 | Section titles | 17.7:1 | Pass / Pass | ⬜ To confirm |
 
 ### Keyboard and Screen Reader
 

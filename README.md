@@ -61,36 +61,29 @@ Mind the Gap Man is London's most affordable (and most easily delayed) superhero
 
 ### User Stories
 
+The user stories are tracked as issues on the [Mind The Gap Man Project Board](https://github.com/users/cyberjkb/projects/7) (MoSCoW labels). Duplicate issues (#4 duplicates #3, #7 duplicates #6) are listed once.
+
 #### Must-Have
 
-| # | As a... | I want to... | So that... |
-| --- | --- | --- | --- |
-| M1 | citizen | understand who Mind the Gap Man is as soon as the page loads | I know right away what the site is about |
-| M2 | citizen | see the services he offers and how much each costs | I can decide whether he can solve my crisis |
-| M3 | citizen | compare the Bronze, Silver and Gold tiers side by side | I can pick the tier that suits my budget and how urgent my problem is |
-| M4 | citizen | send a distress signal through a form and get a confirmation | I know my request has been received |
-| M5 | citizen | move around the site easily on a phone, tablet or desktop | I can get help wherever I am, even on a platform |
-| M6 | citizen using assistive technology | use content with alt text, good contrast and a logical heading order | I can use the site with a screen reader or keyboard |
-| M7 | site owner | show a consistent comic-book brand on every page | visitors remember the persona |
+| Issue | As a... | I want... | So that... | Where it is met |
+| --- | --- | --- | --- | --- |
+| [#1](https://github.com/cyberjkb/mind-the-gap/issues/1) | distressed citizen on the Tube | easy navigation and a responsive layout | I can find superhero information quickly on any device | Shared responsive navbar (Home, Services, Distress Signal) with a hamburger menu; Bootstrap grid on every page |
+| [#2](https://github.com/cyberjkb/mind-the-gap/issues/2) | curious Londoner | high-quality images and an engaging origin story | I understand who the hero is and what his mission is | Hero banner with logo and slogan; Origin Story section with comic artwork and the "Bitten by code..." backstory |
+| [#3](https://github.com/cyberjkb/mind-the-gap/issues/3) | potential client | to explore hireable services and prices on a separate page | I can choose the right package | `services.html`: six service cards with images, Bronze/Silver/Gold tier cards with prices, and a comparison table |
+| [#5](https://github.com/cyberjkb/mind-the-gap/issues/5) | citizen in an emergency | a simple distress form | I can request help quickly and get confirmation | `contact.html` Web3Forms distress form with required fields, redirecting to `thank-you.html` |
 
 #### Should-Have
 
-| # | As a... | I want to... | So that... |
-| --- | --- | --- | --- |
-| S1 | citizen | read the hero's superpowers and weaknesses | I know what he will and won't do (e.g. "Will not fight south of Zone 4 after 9 PM") |
-| S2 | citizen | see the expected response time for each tier | I know how long I'll be waiting |
-| S3 | citizen | always be one click from the distress signal | I can ask for help from any page without searching |
-| S4 | citizen | find the hero's social media links | I can follow his (fictional) adventures |
-| S5 | site owner | have a contact page with HQ details and hours | citizens trust that the service is "real" |
+| Issue | As a... | I want... | So that... | Where it is met |
+| --- | --- | --- | --- | --- |
+| [#6](https://github.com/cyberjkb/mind-the-gap/issues/6) | commuter | operating hours, active Tube zones and contact details | I don't try to summon the hero outside his jurisdiction | Hero HQ card on `contact.html` (hotline, email, HQ, hours); zone limits in the Weaknesses list |
 
-#### Could-Have / Future
+#### Could-Have
 
-| # | As a... | I want to... | So that... |
-| --- | --- | --- | --- |
-| C1 | citizen | read testimonials from rescued Londoners | I can trust the hero's track record |
-| C2 | citizen | see live crime and inconvenience stats | I know how busy the hero is right now |
-| C3 | citizen | scroll through the origin story as a carousel of comic panels | the story feels more like reading a comic |
-| C4 | site owner | take payment online | rescues can be pre-paid (deliberately left out: there is no cart in this version) |
+| Issue | As a... | I want... | So that... | Where it is met |
+| --- | --- | --- | --- | --- |
+| [#8](https://github.com/cyberjkb/mind-the-gap/issues/8) | amused visitor | clear, funny information about the hero's weaknesses and boundaries | I understand the limits of his powers (and get a laugh) | Superpowers & Weaknesses Bootstrap list groups on the home page (e.g. "Will not fight south of Zone 4 after 9 PM") |
+| [#9](https://github.com/cyberjkb/mind-the-gap/issues/9) | modern tech visitor | to switch between a dark and a light mode | I can see the site change from light-hearted to dark thriller | Not yet built: the site currently ships in the dark "night patrol" theme only (see [Future Features](#future-features)) |
 
 ---
 
@@ -98,22 +91,25 @@ Mind the Gap Man is London's most affordable (and most easily delayed) superhero
 
 ### Colour Palette
 
-The palette starts from the two classic **London Underground** colours, roundel red and corporate blue. These are paired with the platform-edge **warning yellow** and a bright cyan accent, which together give strong comic-book contrast. Every colour is defined once as a CSS custom property in `:root` in `assets/css/style.css`, so the styling stays consistent.
+The theme is **"the dark knight meets cyberpunk"**: a night-black graphic-novel page where the two classic **London Underground** colours, roundel red and corporate blue, are pushed to neon so they glow. Cyan and magenta add the cyberpunk accent, and the platform-edge **warning yellow** gives the comic lettering its punch. Every colour is defined once as a CSS custom property in `:root` in `assets/css/style.css`. The site also sets `data-bs-theme="dark"` on `<html>` and re-points Bootstrap's dark-mode variables at this palette, so cards, tables, list groups and forms all match.
 
 | Swatch | Variable | Hex | Role |
 | --- | --- | --- | --- |
-| ![#dc241f](https://placehold.co/24x24/dc241f/dc241f.png) | `--tube-red` | `#dc241f` | Roundel rings, distress buttons, danger accents |
-| ![#a51b17](https://placehold.co/24x24/a51b17/a51b17.png) | `--tube-red-dark` | `#a51b17` | Hover state for red buttons |
-| ![#0019a8](https://placehold.co/24x24/0019a8/0019a8.png) | `--tube-blue` | `#0019a8` | Primary blue buttons, headings, roundel bars |
-| ![#000f66](https://placehold.co/24x24/000f66/000f66.png) | `--tube-blue-dark` | `#000f66` | Footer background, dark text on light panels |
+| ![#07080d](https://placehold.co/24x24/07080d/07080d.png) | `--night` | `#07080d` | Page background (Gotham-at-midnight black) |
+| ![#11131c](https://placehold.co/24x24/11131c/11131c.png) | `--panel` | `#11131c` | Comic panel and card backgrounds |
+| ![#3d4766](https://placehold.co/24x24/3d4766/3d4766.png) | `--line` | `#3d4766` | Gunmetal panel outlines |
+| ![#e3192d](https://placehold.co/24x24/e3192d/e3192d.png) | `--tube-red` | `#e3192d` | Distress buttons, roundel rings, active nav link |
+| ![#ff2a3d](https://placehold.co/24x24/ff2a3d/ff2a3d.png) | `--neon-red` | `#ff2a3d` | Red comic panel shadows and glows |
+| ![#2d5bff](https://placehold.co/24x24/2d5bff/2d5bff.png) | `--tube-blue` | `#2d5bff` | Electric blue buttons, roundel name-bars |
+| ![#0b1440](https://placehold.co/24x24/0b1440/0b1440.png) | `--tube-blue-dark` | `#0b1440` | Midnight navy fills |
+| ![#00f0ff](https://placehold.co/24x24/00f0ff/00f0ff.png) | `--neon-cyan` | `#00f0ff` | Links, nav outlines, hover glows, speech bubbles |
+| ![#ff2bd6](https://placehold.co/24x24/ff2bd6/ff2bd6.png) | `--neon-magenta` | `#ff2bd6` | Glitch text effect, hero grid floor |
 | ![#ffd300](https://placehold.co/24x24/ffd300/ffd300.png) | `--platform-yellow` | `#ffd300` | "Mind the gap" yellow: hero letters, captions, comic buttons, hazard stripe |
-| ![#00a4e4](https://placehold.co/24x24/00a4e4/00a4e4.png) | `--sky-cyan` | `#00a4e4` | Complementary accent (speed lines, highlights) |
-| ![#fff8e7](https://placehold.co/24x24/fff8e7/fff8e7.png) | `--paper` | `#fff8e7` | Page background: aged comic-paper cream |
-| ![#111111](https://placehold.co/24x24/111111/111111.png) | `--ink` | `#111111` | Comic ink outlines, hard drop shadows, body text |
+| ![#e7e9f2](https://placehold.co/24x24/e7e9f2/e7e9f2.png) | `--text` | `#e7e9f2` | Body text on dark |
 
 ![Mind the Gap Man colour palette generated with Coolors](docs/readme-images/colour-palette.webp)
 
-> *Placeholder:* make a palette image at [coolors.co](https://coolors.co/dc241f-0019a8-000f66-ffd300-00a4e4-fff8e7-111111), export it as an image and save it as `docs/readme-images/colour-palette.webp`.
+> *Placeholder:* make a palette image at [coolors.co](https://coolors.co/07080d-11131c-e3192d-2d5bff-00f0ff-ff2bd6-ffd300-e7e9f2), export it as an image and save it as `docs/readme-images/colour-palette.webp`.
 
 ### Typography
 
@@ -124,17 +120,19 @@ The palette starts from the two classic **London Underground** colours, roundel 
 ### Imagery
 
 - **Logo:** a Mind the Gap Man shield logo on a transparent background, used in the navbar and in place of the "O" gap in the hero word "HE[logo]RO".
-- **Navbar background:** a photo of a platform floor with the "MIND THE GAP" warning painted on it (`mind-the-gap-platform-floor-crop.webp`).
+- **Navbar background:** a photo of a platform floor with the "MIND THE GAP" warning painted on it (`mind-the-gap-platform-floor-crop.webp`). On screens 1200px and wider it uses `mind-the-gap-platform-floor-wide.webp`, a copy whose plain asphalt edges were extended by mirroring (with Python Pillow), so the photo can stay centred at a fixed size without stretching.
 - **Comic panels:** spider removal, jar opening, cat stuck in a tree, Wi-Fi down, arch-nemesis defeat, the origin story and the SOS distress signal, all drawn in comic illustration style.
 - All raster images are **WebP**, have explicit `width`/`height` to avoid layout shift, and use `loading="lazy"` below the fold. The favicon is an SVG roundel.
 
 ### Comic Book Design Rationale
 
-- **Thick ink borders and hard offset shadows** (`--ink-border`, `--ink-shadow`) make every card look like a printed comic panel.
+- **Dark graphic-novel panels:** every card is a near-black panel with a gunmetal outline and a hard **blood-red offset shadow** (`--ink-shadow-lg`), the Dark Knight accent that lifts panels off the black page. Clickable panels swap to a neon cyan shadow on hover.
+- **Night-city hero banner, built in pure CSS:** a yellow "signal in the sky" spotlight behind the logo, blue searchlight rays, CRT scanlines and a neon perspective grid floor, all from CSS gradients with no extra image files. The DISTRESS SIGNAL button pulses like an alarm light (turned off for users who prefer reduced motion).
+- **Glitch lettering:** section titles and the tagline use a cyan/magenta split `text-shadow`, the classic cyberpunk "glitch".
 - **Comic strip layout:** the five services sit in a 3 + 2 panel grid with black gutters, like a real comic page.
-- **Speech bubbles, yellow caption boxes and "BANG!" starbursts** carry the jokes and also mark out important information.
+- **Speech bubbles, yellow caption boxes and "BANG!" starbursts** carry the jokes and mark out important information.
 - **The yellow and black hazard stripe** (`.gap-stripe`) separates sections, like the edge of a platform.
-- **Tube roundel headings** (`.roundel-title`) put each section title over a red ring, which ties the comic look to the London setting.
+- **Tube roundel headings** (`.roundel-title`) put each section title over a glowing red ring, which ties the comic look to the London setting.
 
 ---
 
@@ -187,35 +185,35 @@ The site has three main pages and a confirmation page. They share a navbar and f
 #### Hero Banner
 
 - The word **HE[logo]RO** is set in tilted yellow Bangers letters, with the shield logo as the "O" gap. It is followed by the tagline **"HERO FOR HIRE"** and a large red **DISTRESS SIGNAL** button that links to the contact page.
-- **User benefit:** the persona and the main call to action are clear straight away (user stories M1, S3).
+- **User benefit:** the persona and the main call to action are clear straight away (user stories #2, #1).
 
 ![Home page hero banner](docs/readme-images/home-hero-desktop.webp)
 
 #### Origin Story
 
 - A comic panel tells the story ("Bitten by code...") next to a Bootstrap list group of **Superpowers and Weaknesses**, including "Will not fight south of Zone 4 after 9 PM".
-- **User benefit:** it entertains visitors and shows what the hero will and won't do (S1).
+- **User benefit:** it entertains visitors and shows what the hero will and won't do (#8).
 
 ![Origin story and superpowers list](docs/readme-images/home-origin-desktop.webp)
 
 #### Services Comic Strip
 
 - A five-panel comic strip in a 3 + 2 layout: Spider Removal, Cat in a Tree, Wi-Fi Down, Arch-Nemesis Defeat and Jar Opening. Each panel has a caption and a tier badge, and the whole strip links to the services page.
-- **User benefit:** a quick, visual overview of what's on offer (M2).
+- **User benefit:** a quick, visual overview of what's on offer (#3).
 
 ![Services comic strip](docs/readme-images/home-strip-desktop.webp)
 
 #### "I can be your Hero..." Tier Summary
 
 - A short summary of the Bronze (£19), Silver (£49) and Gold (£199) tiers, with a link to the full comparison.
-- **User benefit:** visitors see prices early, without leaving the home page (M2, M3).
+- **User benefit:** visitors see prices early, without leaving the home page (#3).
 
 ![Tier summary](docs/readme-images/home-tiers-desktop.webp)
 
 #### Distress Signal SOS Card
 
 - A clickable SOS card that takes the user to the distress form.
-- **User benefit:** a second, eye-catching route to booking at the end of the page (S3).
+- **User benefit:** a second, eye-catching route to booking at the end of the page (#5).
 
 ![SOS distress card](docs/readme-images/home-sos-desktop.webp)
 
@@ -228,7 +226,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 #### Service Detail Cards
 
 - Bootstrap cards for each of the five services, each with a comic illustration, a description and a tier badge.
-- **User benefit:** full detail on what each rescue covers (M2).
+- **User benefit:** full detail on what each rescue covers (#3).
 
 ![Service detail cards](docs/readme-images/services-cards-desktop.webp)
 
@@ -236,7 +234,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 - Three pricing cards: **Bronze £19**, **Silver £49** and **Gold £199** per rescue. Each lists its services and response time, from "by the next Tube" to "faster than a Victoria line train".
 - A responsive comparison table shows what is included in each tier.
-- **User benefit:** a structured, side-by-side comparison makes it easy to choose (M3, S2).
+- **User benefit:** a structured, side-by-side comparison makes it easy to choose (#3).
 
 ![Tier pricing cards and comparison table](docs/readme-images/services-tiers-desktop.webp)
 
@@ -244,7 +242,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 - A [Web3Forms](https://web3forms.com/) form with a tier dropdown, labelled required fields and a hidden honeypot spam trap. There is deliberately no cart or online payment.
 - After the form is submitted, the user is taken to the thank-you page.
-- **User benefit:** users can book a chosen tier without leaving the pricing page (M4).
+- **User benefit:** users can book a chosen tier without leaving the pricing page (#5).
 
 ![Rescue request form](docs/readme-images/services-form-desktop.webp)
 
@@ -254,9 +252,9 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 ### Distress Signal (Contact) Page (`contact.html`)
 
-- **Fictional HQ details:** hotline `020 7946 0999` (an Ofcom drama range), `distress@mindthegapman.example`, "Behind the yellow line, Platform 2, Bank Station" and opening hours "24/7, except during engineering works".
+- **Fictional HQ details:** hotline `020 8010 1010`, `distress@mindthegapman.example`, "Behind the yellow line, Platform 2, Bank Station" and opening hours "24/7, except during engineering works".
 - **Distress form (Web3Forms):** name, email, crisis details and other fields, all with labels and validation, using red distress styling.
-- **User benefit:** a dedicated, clear place to call for help, with confirmation after sending (M4, S5).
+- **User benefit:** a dedicated, clear place to call for help, with confirmation after sending (#5, #6).
 
 | Desktop | Mobile |
 | --- | --- |
@@ -265,7 +263,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 ### Thank You Page (`thank-you.html`)
 
 - A pure-HTML confirmation page that Web3Forms redirects to after a successful submission. It reassures the user that help is "on the next train" and links back to the rest of the site.
-- **User benefit:** instant feedback that the distress signal was received (M4), without any custom JavaScript.
+- **User benefit:** instant feedback that the distress signal was received (#5), without any custom JavaScript.
 
 | Desktop | Mobile |
 | --- | --- |
@@ -273,11 +271,12 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 ### Future Features
 
-- **Citizen testimonials** from rescued Londoners, for example as a Bootstrap carousel of speech bubbles (C1).
-- **Live crime and inconvenience stats** (e.g. "Spiders evicted this week") from the brief (C2).
-- **Origin story carousel:** turn the origin story into a swipeable sequence of comic panels (C3).
+- **Citizen testimonials** from rescued Londoners, for example as a Bootstrap carousel of speech bubbles.
+- **Live crime and inconvenience stats** (e.g. "Spiders evicted this week") from the brief.
+- **Origin story carousel:** turn the origin story into a swipeable sequence of comic panels.
 - **Arrival method field** on the distress form (e.g. cape, Tube, Boris bike), from the brief.
-- **Online booking and payment** for pre-paid rescues (C4).
+- **Online booking and payment** for pre-paid rescues.
+- **Night / day mode switch** (project board issue #9): a hidden "Easter egg" toggle between the dark night-patrol theme and a lighter daytime comic theme.
 
 ---
 
@@ -306,7 +305,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - Icon-only links (social icons) have descriptive `aria-label`s that say they open in a new tab. The icons themselves are `aria-hidden`.
 - Every form control has a matching `<label for>`. Required fields use the native `required` attribute, so the browser gives immediate feedback.
 - The current page is marked with `aria-current="page"` in the navbar.
-- Colour combinations were chosen for contrast: ink or navy on yellow and cream, and white or yellow on navy. They are checked in [TESTING.md](TESTING.md#accessibility-testing).
+- Colour combinations were chosen for contrast: light text on the night background, black on yellow, and white on the red and blue buttons (all at least 4.5:1). They are checked in [TESTING.md](TESTING.md#accessibility-testing).
 - Body text uses Open Sans for readability. The decorative Bangers font is kept for short headings and buttons.
 - The navbar hamburger has `aria-controls`, `aria-expanded` and `aria-label`.
 
@@ -338,6 +337,9 @@ All testing is documented in **[TESTING.md](TESTING.md)**. It covers:
 | The W3C Jigsaw CSS validator reported 3 errors on the comic outline lettering | `paint-order` (used alongside the non-standard `-webkit-text-stroke`) is not recognised by the validator | Rebuilt the black letter outlines from four offset `text-shadow` layers, which are standard CSS. Jigsaw now reports 0 errors |
 | The W3C HTML validator reported an error on both forms | The hidden honeypot checkbox had `autocomplete="off"`, which is not allowed on checkbox inputs | Removed the attribute. The honeypot still works, and all 4 pages now validate with no errors or warnings |
 | On desktop, the navigation links covered the "P" of the "MIND THE GAP" floor text in the navbar | The background photo scales to the full screen width, so the right-aligned links overlapped the lettering at around 1000–1440px | The navbar now expands at the `xl` breakpoint (1200px). Above that its height grows with the screen (`clamp()` + `vw`) and the links sit on the light tile strip above the lettering. Below 1200px the hamburger menu is used |
+| The first navbar fix made the desktop navbar very tall, with the links pinned to the top instead of centred | Pinning the links above the lettering needed extra height | Scaled the photo to `120%` of the width and anchored it to the right edge (`background-size: 120% auto; background-position: 100% 48%`). This slides the "MIND THE GAP" lettering left, so the navbar could shrink by about 40% (`clamp(110px, 8vw, 150px)`), the links are vertically centred and the desktop logo is larger |
+| From 1200px up, the navbar photo jumped left and zoomed in, and the navbar was still too tall | The `120%` / right-anchored background (above) shifted the lettering left, and stretching the photo to the full screen width zooms in further on wider screens, which needs a taller navbar | Made `mind-the-gap-platform-floor-wide.webp`: the same photo with its plain asphalt edges mirrored out to 6400px (the lettering is untouched). From 1200px up it is shown centred at a fixed size (`background-size: auto 150px`), so the lettering matches its size just below 1200px, stays centred, and the navbar is a fixed 92px on every desktop width |
+| On mobile, the tier comparison table needed sideways scrolling, and "Gold £199" sat on one line while Bronze and Silver wrapped | Four columns of default Bootstrap padding are wider than a 375px screen, and the shorter Gold label had room to stay on one line | Put each tier name and price on separate lines (`d-block`) in all three headers, and reduced the table's font size and cell padding below 576px |
 
 ### Unfixed Bugs / Known Limitations
 
@@ -399,7 +401,7 @@ The site is deployed with GitHub Pages:
 
 - Comic illustrations, the logo and the platform-floor image are AI-generated and/or the author's own, made for this project. *(Edit to name the exact tool or source for each image.)*
 - The London Underground roundel styling, "Mind the Gap" wording and Tube colours are used as **parody** for educational purposes only. This project is **not affiliated with, endorsed by or connected to Transport for London (TfL)**.
-- Contact details are fictional. `020 7946 0999` is in Ofcom's range reserved for drama, and `.example` is a reserved domain.
+- Contact details are fictional. The `.example` email domain is reserved and can never receive real mail.
 
 ### Inspiration
 
