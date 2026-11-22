@@ -22,8 +22,8 @@
     <!-- WHAT: Bootstrap 5.3.3 CSS (stable release). WHY: Responsive grid, navbar, cards, list groups and form components. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- WHAT: Font Awesome kit. WHY: Social media and contact icons. -->
-    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous"></script>
+    <!-- WHAT: Font Awesome kit, deferred. WHY: Social media and contact icons. "defer" lets the page draw first and loads the icon library after the HTML is parsed, because the icons are not needed for the first screen. -->
+    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous" defer></script>
 
     <!-- WHAT: Custom stylesheet, loaded last. WHY: So the comic theme overrides Bootstrap defaults. -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -37,7 +37,7 @@
             <div class="container-fluid px-3 px-lg-4">
                 <!-- WHAT: Brand logo linking home. WHY: Standard UX convention - clicking the logo returns to the home page. -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
+                    <img src="assets/images/mind-the-gap-man-logo-transparent-300w.webp" srcset="assets/images/mind-the-gap-man-logo-transparent-300w.webp 300w, assets/images/mind-the-gap-man-logo-transparent-600w.webp 600w" sizes="82px" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
                 </a>
                 <!-- WHAT: Hamburger toggle (Bootstrap collapse). WHY: Collapses links into a menu on tablet/mobile; powered by the Bootstrap bundle, no custom JS. -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,12 +68,13 @@
         <!-- WHAT: Contact section with two columns: HQ details on the left, message form on the right. WHY: Users can choose to phone or email directly, or send a detailed message; columns stack on mobile. -->
         <section id="contact" class="comic-section">
             <div class="container">
-                <div class="row g-5">
+                <!-- WHAT: Two-column row with a responsive gutter. WHY: The wide g-5 gutter is only used from the lg breakpoint; on phones it would be wider than the container padding and cause sideways scrolling. -->
+                <div class="row g-4 g-lg-5">
                     <!-- WHAT: Hero HQ contact details card. WHY: Gives quick alternatives to the form (phone, email, address and hours) with icons for fast scanning. -->
                     <div class="col-lg-5">
                         <div class="card comic-panel h-100">
                             <!-- WHAT: SOS image at the top of the HQ card. WHY: Reinforces the emergency theme visually; lazy loaded as it may sit below the fold on mobile. -->
-                            <img src="assets/images/sos.webp" alt="Comic illustration of a bright SOS distress signal lighting up the London night sky" class="card-img-top img-fluid rounded-0" width="1367" height="768" loading="lazy">
+                            <img src="assets/images/sos.webp" srcset="assets/images/sos-600w.webp 600w, assets/images/sos-800w.webp 800w, assets/images/sos.webp 1367w" sizes="(min-width: 992px) 40vw, 100vw" alt="Comic illustration of a bright SOS distress signal lighting up the London night sky" class="card-img-top img-fluid rounded-0" width="1367" height="768" loading="lazy">
                             <div class="card-body p-4">
                                 <!-- WHAT: Comic sound effect label. WHY: Adds comic-book energy above the heading; hidden from screen readers as it is decorative. -->
                                 <p class="text-center mb-3" aria-hidden="true"><span class="sfx-burst">SOS!</span></p>

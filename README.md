@@ -6,9 +6,7 @@
 
 Mind the Gap Man is London's most affordable (and most easily delayed) superhero. This is a parody website: a three-page static site, plus a form confirmation page, built for Code Institute Milestone Project 1 with HTML5, CSS3 and Bootstrap 5.3.3. It looks like a comic book and uses London Underground styling. Distressed Londoners can read the hero's origin story, compare the Bronze, Silver and Gold rescue tiers, and send a distress signal to book a rescue.
 
-![Mind the Gap Man shown on desktop, laptop, tablet and mobile](docs/readme-images/responsive-mockup.webp)
-
-> **How to make the showcase image:** Once the site is live, open [Am I Responsive?](https://ui.dev/amiresponsive) (or [amiresponsive.co.uk](https://amiresponsive.co.uk/)) and enter `https://cyberjkb.github.io/mind-the-gap/`. Screenshot the four-device mockup, convert it to WebP (for example with [Squoosh](https://squoosh.app/)) and save it as `docs/readme-images/responsive-mockup.webp`.
+![Mind the Gap Man shown on desktop, laptop, tablet and mobile](assets/images/readme/responsive-mockup.webp)
 
 ---
 
@@ -107,9 +105,7 @@ The theme is **"the dark knight meets cyberpunk"**: a night-black graphic-novel 
 | ![#ffd300](https://placehold.co/24x24/ffd300/ffd300.png) | `--platform-yellow` | `#ffd300` | "Mind the gap" yellow: hero letters, captions, comic buttons, hazard stripe |
 | ![#e7e9f2](https://placehold.co/24x24/e7e9f2/e7e9f2.png) | `--text` | `#e7e9f2` | Body text on dark |
 
-![Mind the Gap Man colour palette generated with Coolors](docs/readme-images/colour-palette.webp)
-
-> *Placeholder:* make a palette image at [coolors.co](https://coolors.co/07080d-11131c-e3192d-2d5bff-00f0ff-ff2bd6-ffd300-e7e9f2), export it as an image and save it as `docs/readme-images/colour-palette.webp`.
+![Mind the Gap Man colour palette generated with Coolors](assets/images/readme/colour-palette.webp)
 
 ### Typography
 
@@ -138,15 +134,14 @@ The theme is **"the dark knight meets cyberpunk"**: a night-black graphic-novel 
 
 ## Wireframes
 
-The wireframes were drawn by hand before development. The originals are kept outside the repository in `../project-1-ref/`.
-
-> **To do before submission:** copy `wireframe-1.jpg`, `wireframe-2.jpg` and `services-comic-strip-sketch.jpg` from `../project-1-ref/` into `docs/wireframes/` so the images below display on GitHub.
+The first three wireframes were drawn by hand before development. The final one is a low-to-mid fidelity wireframe of the finished site, showing how the desktop and mobile layouts were built.
 
 | Wireframe | Description |
 | --- | --- |
-| ![Home page wireframe showing navbar, hero banner and origin story](docs/wireframes/wireframe-1.jpg) | **Wireframe 1:** navbar on a platform-floor background, HERO banner and origin story layout |
-| ![Wireframe of services, tiers and distress signal sections](docs/wireframes/wireframe-2.jpg) | **Wireframe 2:** services, tier summary and distress signal call to action |
-| ![Sketch of the five-panel services comic strip](docs/wireframes/services-comic-strip-sketch.jpg) | **Comic strip sketch:** the 3 + 2 panel layout for the five services |
+| ![Home page wireframe showing navbar, hero banner and origin story](assets/images/readme/wireframe-1.webp) | **Wireframe 1:** navbar on a platform-floor background, HERO banner and origin story layout |
+| ![Wireframe of services, tiers and distress signal sections](assets/images/readme/wireframe-2.webp) | **Wireframe 2:** services, tier summary and distress signal call to action |
+| ![Sketch of the five-panel services comic strip](assets/images/readme/services-comic-strip-sketch.webp) | **Comic strip sketch:** the 3 + 2 panel layout for the five services |
+| ![Low-to-mid fidelity wireframe of the finished site: home, services and contact pages on desktop, plus the home page on mobile](assets/images/readme/site-wireframe.webp) | **Site wireframe (as built):** the final page structure of Home, Services and Contact on desktop, and the stacked mobile Home layout |
 
 ---
 
@@ -164,8 +159,8 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 | Screen Size | Display |
 | --- | --- |
-| Desktop | ![Navbar on desktop](docs/readme-images/navbar-desktop.webp) |
-| Mobile (collapsed / expanded) | ![Navbar collapsed into hamburger menu on mobile](docs/readme-images/navbar-mobile.webp) |
+| Desktop | ![Navbar on desktop](assets/images/readme/navbar-desktop.webp) |
+| Mobile (collapsed / expanded) | ![Navbar collapsed into hamburger menu on mobile](assets/images/readme/navbar-mobile.webp) |
 
 ### Shared: Footer
 
@@ -177,8 +172,8 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 | Screen Size | Display |
 | --- | --- |
-| Desktop | ![Footer on desktop](docs/readme-images/footer-desktop.webp) |
-| Mobile | ![Footer on mobile](docs/readme-images/footer-mobile.webp) |
+| Desktop | ![Footer on desktop](assets/images/readme/footer-desktop.webp) |
+| Mobile | ![Footer on mobile](assets/images/readme/footer-mobile.webp) |
 
 ### Home Page (`index.html`)
 
@@ -187,39 +182,39 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - The word **HE[logo]RO** is set in tilted yellow Bangers letters, with the shield logo as the "O" gap. It is followed by the tagline **"HERO FOR HIRE"** and a large red **DISTRESS SIGNAL** button that links to the contact page.
 - **User benefit:** the persona and the main call to action are clear straight away (user stories #2, #1).
 
-![Home page hero banner](docs/readme-images/home-hero-desktop.webp)
+![Home page hero banner](assets/images/readme/home-hero-desktop.webp)
 
 #### Origin Story
 
 - A comic panel tells the story ("Bitten by code...") next to a Bootstrap list group of **Superpowers and Weaknesses**, including "Will not fight south of Zone 4 after 9 PM".
 - **User benefit:** it entertains visitors and shows what the hero will and won't do (#8).
 
-![Origin story and superpowers list](docs/readme-images/home-origin-desktop.webp)
+![Origin story and superpowers list](assets/images/readme/home-origin-desktop.webp)
 
 #### Services Comic Strip
 
 - A five-panel comic strip in a 3 + 2 layout: Spider Removal, Cat in a Tree, Wi-Fi Down, Arch-Nemesis Defeat and Jar Opening. Each panel has a caption and a tier badge, and the whole strip links to the services page.
 - **User benefit:** a quick, visual overview of what's on offer (#3).
 
-![Services comic strip](docs/readme-images/home-strip-desktop.webp)
+![Services comic strip](assets/images/readme/home-strip-desktop.webp)
 
 #### "I can be your Hero..." Tier Summary
 
 - A short summary of the Bronze (£19), Silver (£49) and Gold (£199) tiers, with a link to the full comparison.
 - **User benefit:** visitors see prices early, without leaving the home page (#3).
 
-![Tier summary](docs/readme-images/home-tiers-desktop.webp)
+![Tier summary](assets/images/readme/home-tiers-desktop.webp)
 
 #### Distress Signal SOS Card
 
 - A clickable SOS card that takes the user to the distress form.
 - **User benefit:** a second, eye-catching route to booking at the end of the page (#5).
 
-![SOS distress card](docs/readme-images/home-sos-desktop.webp)
+![SOS distress card](assets/images/readme/home-sos-desktop.webp)
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Full home page on desktop](docs/readme-images/home-full-desktop.webp) | ![Full home page on mobile](docs/readme-images/home-full-mobile.webp) |
+| ![Full home page on desktop](assets/images/readme/home-full-desktop.webp) | ![Full home page on mobile](assets/images/readme/home-full-mobile.webp) |
 
 ### Services and Pricing Page (`services.html`)
 
@@ -228,7 +223,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - Bootstrap cards for each of the five services, each with a comic illustration, a description and a tier badge.
 - **User benefit:** full detail on what each rescue covers (#3).
 
-![Service detail cards](docs/readme-images/services-cards-desktop.webp)
+![Service detail cards](assets/images/readme/services-cards-desktop.webp)
 
 #### Tier Cards and Comparison Table
 
@@ -236,7 +231,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - A responsive comparison table shows what is included in each tier.
 - **User benefit:** a structured, side-by-side comparison makes it easy to choose (#3).
 
-![Tier pricing cards and comparison table](docs/readme-images/services-tiers-desktop.webp)
+![Tier pricing cards and comparison table](assets/images/readme/services-tiers-desktop.webp)
 
 #### Rescue Request Form
 
@@ -244,11 +239,11 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - After the form is submitted, the user is taken to the thank-you page.
 - **User benefit:** users can book a chosen tier without leaving the pricing page (#5).
 
-![Rescue request form](docs/readme-images/services-form-desktop.webp)
+![Rescue request form](assets/images/readme/services-form-desktop.webp)
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Full services page on desktop](docs/readme-images/services-full-desktop.webp) | ![Full services page on mobile](docs/readme-images/services-full-mobile.webp) |
+| ![Full services page on desktop](assets/images/readme/services-full-desktop.webp) | ![Full services page on mobile](assets/images/readme/services-full-mobile.webp) |
 
 ### Distress Signal (Contact) Page (`contact.html`)
 
@@ -258,7 +253,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Contact page on desktop](docs/readme-images/contact-desktop.webp) | ![Contact page on mobile](docs/readme-images/contact-mobile.webp) |
+| ![Contact page on desktop](assets/images/readme/contact-desktop.webp) | ![Contact page on mobile](assets/images/readme/contact-mobile.webp) |
 
 ### Thank You Page (`thank-you.html`)
 
@@ -267,7 +262,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Thank you page on desktop](docs/readme-images/thank-you-desktop.webp) | ![Thank you page on mobile](docs/readme-images/thank-you-mobile.webp) |
+| ![Thank you page on desktop](assets/images/readme/thank-you-desktop.webp) | ![Thank you page on mobile](assets/images/readme/thank-you-mobile.webp) |
 
 ### Future Features
 
@@ -343,7 +338,6 @@ All testing is documented in **[TESTING.md](TESTING.md)**. It covers:
 
 ### Unfixed Bugs / Known Limitations
 
-- The forms only work after a real Web3Forms access key replaces `YOUR_ACCESS_KEY_HERE`. Until then, submissions are rejected by Web3Forms.
 - Because the redirect URL is absolute, a form submitted from a local copy will redirect to the live site's thank-you page. This is expected.
 - *Add any bugs still open after final testing here, or state "No known unfixed bugs."*
 

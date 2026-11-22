@@ -124,6 +124,13 @@ a:focus-visible,
     color: var(--neon-red);
 }
 
+/* WHAT: Darker red tilt letter on yellow comic buttons.
+   WHY:  Neon red on platform yellow fails WCAG contrast (found by
+         Lighthouse); the darker Underground red passes at 5.4:1. */
+.btn-comic .comic-tilt {
+    color: var(--tube-red-dark);
+}
+
 /* WHAT: Alternate tilt direction.
    WHY:  Used where a red letter would clash (e.g. on red buttons). */
 .comic-tilt-alt {
@@ -557,6 +564,43 @@ a:focus-visible,
     width: clamp(110px, 24vw, 360px);
     height: auto;
     filter: drop-shadow(0 0 28px rgba(0, 240, 255, 0.45)) drop-shadow(6px 6px 0 var(--ink));
+    /* WHY: the transition animates the hover spin below (both ways). */
+    transition: transform 0.9s cubic-bezier(0.68, -0.4, 0.27, 1.4);
+    /* WHY: plays the "spin in" entrance once when the page loads.
+            "backwards" holds the first frame during the short delay;
+            after it finishes the animation releases transform, so the
+            hover transition can take over. */
+    animation: logo-spin-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s 1 backwards;
+}
+
+/* WHAT: Superhero "spinning logo" entrance - the shield whirls in from
+         nothing, spinning two full turns while growing to full size.
+   WHY:  A pure-CSS nod to the classic TV superhero spinning-logo scene
+         transition. It runs once only, with no JavaScript. */
+@keyframes logo-spin-in {
+    /* NOTE: no opacity fade - Chrome ignores fully transparent elements
+             when timing the Largest Contentful Paint, so fading in would
+             make the page score as slower. scale(0) hides it instead. */
+    from {
+        transform: rotate(-720deg) scale(0);
+    }
+
+    to {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* WHAT: Spin the logo one full turn clockwise on hover.
+   WHY:  The hover is on the whole HERO word (a stable parent), not the
+         spinning image itself: a rotating image moves its corners out
+         from under the cursor, which would make a hover on the image
+         flicker on and off. Using a transition (not an animation) means
+         the logo finishes smoothly and spins back anti-clockwise when the
+         pointer leaves, instead of snapping back mid-turn. On touch
+         screens a tap on the word triggers the same spin. Both effects
+         are switched off for reduced-motion users (section 16). */
+.hero-word:hover .hero-logo {
+    transform: rotate(360deg) scale(1.06);
 }
 
 /* WHAT: "HERO FOR HIRE" tagline under the letters.
@@ -1059,10 +1103,16 @@ a:focus-visible,
    WHY:  Desktop is the primary design; these rules scale it down cleanly.
          The navbar image keeps background-position: center so the
          "MIND THE GAP" text stays visible while the edges are cropped.
+         A 1600px-wide copy of the photo is used here: it is still sharp
+         on high-density phone screens but is a fraction of the file size
+         of the full 2525px image, which speeds up mobile loading.
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
     .navbar-platform {
         min-height: 90px;
+        background-image:
+            linear-gradient(rgba(7, 8, 13, 0.25), rgba(7, 8, 13, 0.25)),
+            url("../images/mind-the-gap-platform-floor-crop-1600w.webp");
     }
 
     .navbar-logo {

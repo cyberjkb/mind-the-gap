@@ -22,8 +22,8 @@
     <!-- WHAT: Bootstrap 5.3.3 CSS (stable release). WHY: Responsive grid, navbar, cards, list groups and form components. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- WHAT: Font Awesome kit. WHY: Social media and contact icons. -->
-    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous"></script>
+    <!-- WHAT: Font Awesome kit, deferred. WHY: Social media and contact icons. "defer" lets the page draw first and loads the icon library after the HTML is parsed, because the icons are not needed for the first screen. -->
+    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous" defer></script>
 
     <!-- WHAT: Custom stylesheet, loaded last. WHY: So the comic theme overrides Bootstrap defaults. -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -37,7 +37,7 @@
             <div class="container-fluid px-3 px-lg-4">
                 <!-- WHAT: Brand logo linking home. WHY: Standard UX convention - clicking the logo returns to the home page. -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
+                    <img src="assets/images/mind-the-gap-man-logo-transparent-300w.webp" srcset="assets/images/mind-the-gap-man-logo-transparent-300w.webp 300w, assets/images/mind-the-gap-man-logo-transparent-600w.webp 600w" sizes="82px" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
                 </a>
                 <!-- WHAT: Hamburger toggle (Bootstrap collapse). WHY: Collapses links into a menu on tablet/mobile; powered by the Bootstrap bundle, no custom JS. -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@
                     <!-- WHAT: Spider Removal service card. WHY: Bronze tier entry level rescue, matches the first strip panel. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <img src="assets/images/spider-removal-transparent.webp" class="service-card-img" alt="Comic illustration of a hairy spider next to a no-entry sign reading Removal" width="840" height="472" loading="lazy">
+                            <img src="assets/images/spider-removal-transparent.webp" srcset="assets/images/spider-removal-transparent-600w.webp 600w, assets/images/spider-removal-transparent.webp 840w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" alt="Comic illustration of a hairy spider next to a no-entry sign reading Removal" width="840" height="472" loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title">Spider Removal</h3>
                                 <p class="card-text">A spider the size of a Zone 1 rent bill has claimed your bath. Mind the Gap Man arrives, negotiates calmly, then carries it outside in a commemorative Oyster card holder. No spiders are harmed. Your dignity, however, is not guaranteed.</p>
@@ -91,7 +91,7 @@
                     <!-- WHAT: Cat in a Tree service card. WHY: Silver tier classic hero job, matches the second strip panel. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <img src="assets/images/cat-stuck-in-a-tree-transparent.webp" class="service-card-img" alt="Comic illustration of a startled cat stuck at the top of a tree" width="1050" height="590" loading="lazy">
+                            <img src="assets/images/cat-stuck-in-a-tree-transparent.webp" srcset="assets/images/cat-stuck-in-a-tree-transparent-600w.webp 600w, assets/images/cat-stuck-in-a-tree-transparent-800w.webp 800w, assets/images/cat-stuck-in-a-tree-transparent.webp 1050w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" alt="Comic illustration of a startled cat stuck at the top of a tree" width="1050" height="590" loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title">Cat in a Tree</h3>
                                 <p class="card-text">Your cat has climbed a plane tree and is now pretending it has never met you. Our hero scales the trunk using only upper body strength and Tube strap experience, then returns the cat, who will immediately climb back up.</p>
@@ -104,7 +104,7 @@
                     <!-- WHAT: Wi-Fi Down service card. WHY: Silver tier modern day emergency, matches the third strip panel. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <img src="assets/images/wifi-down-transparent.webp" class="service-card-img" alt="Comic lettering reading Wi-Fi Down with a broken signal symbol" width="1260" height="708" loading="lazy">
+                            <img src="assets/images/wifi-down-transparent.webp" srcset="assets/images/wifi-down-transparent-600w.webp 600w, assets/images/wifi-down-transparent-800w.webp 800w, assets/images/wifi-down-transparent.webp 1260w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" alt="Comic lettering reading Wi-Fi Down with a broken signal symbol" width="1260" height="708" loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title">Wi-Fi Fixing</h3>
                                 <p class="card-text">Buffering wheel of doom? Mind the Gap Man bravely turns the router off and on again, stares sternly at the blinking lights and, if needed, stands heroically closer to the window holding your laptop aloft.</p>
@@ -117,7 +117,7 @@
                     <!-- WHAT: Arch-Nemesis Defeat service card. WHY: Gold tier flagship rescue, matches the wide bottom strip panel with the BANG! effect. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <img src="assets/images/arch-nemesis.webp" class="service-card-img" alt="Comic illustration of Mind the Gap Man firing laser eyes at a skull and crossbones villain with a BANG! burst" width="1367" height="768" loading="lazy">
+                            <img src="assets/images/arch-nemesis.webp" srcset="assets/images/arch-nemesis-600w.webp 600w, assets/images/arch-nemesis-800w.webp 800w, assets/images/arch-nemesis.webp 1367w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" alt="Comic illustration of Mind the Gap Man firing laser eyes at a skull and crossbones villain with a BANG! burst" width="1367" height="768" loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title">Arch-Nemesis Defeat</h3>
                                 <p class="card-text">A cackling villain is threatening the city, or at least your street. Our hero deploys laser eyes, a dramatic "BANG!" and a short speech about passenger etiquette. Cape billowing is included at no extra charge.</p>
@@ -130,7 +130,7 @@
                     <!-- WHAT: Jar Opening service card. WHY: Bronze tier everyday rescue, matches the final strip panel. -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
-                            <img src="assets/images/jar.webp" class="service-card-img" alt="Comic illustration of a flexing arm above a stubborn, tightly sealed jar" width="1050" height="590" loading="lazy">
+                            <img src="assets/images/jar.webp" srcset="assets/images/jar-600w.webp 600w, assets/images/jar-800w.webp 800w, assets/images/jar.webp 1050w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" alt="Comic illustration of a flexing arm above a stubborn, tightly sealed jar" width="1050" height="590" loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title">Jar Opening</h3>
                                 <p class="card-text">The pickle jar has defeated you, your flatmate and a tea towel. Mind the Gap Man applies one superhuman twist, a satisfying "POP!" and a modest nod. He will not judge you for running the lid under the hot tap first.</p>
@@ -144,7 +144,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <article class="card comic-panel h-100">
                             <!-- WHAT: Comic illustration of the hero escorting an elderly passenger past a Tube queue. WHY: Shows the service visually, matching the other five cards. -->
-                            <img src="assets/images/queue-jumping.webp" class="service-card-img" width="1367" height="768" loading="lazy" alt="Comic panel of Mind the Gap Man holding an Official Queue-Jump Protocol sign and helping an elderly man past a long queue on a Tube platform while amazed commuters watch">
+                            <img src="assets/images/queue-jumping.webp" srcset="assets/images/queue-jumping-600w.webp 600w, assets/images/queue-jumping-800w.webp 800w, assets/images/queue-jumping.webp 1367w" sizes="(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw" class="service-card-img" width="1367" height="768" loading="lazy" alt="Comic panel of Mind the Gap Man holding an Official Queue-Jump Protocol sign and helping an elderly man past a long queue on a Tube platform while amazed commuters watch">
                             <div class="card-body">
                                 <h3 class="card-title">Queue Jumping</h3>
                                 <p class="card-text">Stuck in the queue for brunch, the post office or the Oxford Circus escalators? Our hero politely, yet heroically, gets you to the front. Results not valid at Wimbledon, where queueing is a sacred art.</p>

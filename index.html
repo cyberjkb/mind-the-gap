@@ -22,8 +22,8 @@
     <!-- WHAT: Bootstrap 5.3.3 CSS (stable release). WHY: Responsive grid, navbar, cards, list groups and form components. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- WHAT: Font Awesome kit. WHY: Social media and contact icons. -->
-    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous"></script>
+    <!-- WHAT: Font Awesome kit, deferred. WHY: Social media and contact icons. "defer" lets the page draw first and loads the icon library after the HTML is parsed, because the icons are not needed for the first screen. -->
+    <script src="https://kit.fontawesome.com/265cd67e49.js" crossorigin="anonymous" defer></script>
 
     <!-- WHAT: Custom stylesheet, loaded last. WHY: So the comic theme overrides Bootstrap defaults. -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -37,7 +37,7 @@
             <div class="container-fluid px-3 px-lg-4">
                 <!-- WHAT: Brand logo linking home. WHY: Standard UX convention - clicking the logo returns to the home page. -->
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
+                    <img src="assets/images/mind-the-gap-man-logo-transparent-300w.webp" srcset="assets/images/mind-the-gap-man-logo-transparent-300w.webp 300w, assets/images/mind-the-gap-man-logo-transparent-600w.webp 600w" sizes="82px" alt="Mind the Gap Man shield logo - return to home page" class="navbar-logo" width="1264" height="1264">
                 </a>
                 <!-- WHAT: Hamburger toggle (Bootstrap collapse). WHY: Collapses links into a menu on tablet/mobile; powered by the Bootstrap bundle, no custom JS. -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
                 <h1 class="hero-word">
                     <span class="hero-letter" aria-hidden="true">H</span>
                     <span class="hero-letter" aria-hidden="true">E</span>
-                    <img class="hero-logo" src="assets/images/mind-the-gap-man-logo-transparent.webp" alt="Mind the Gap Man shield logo" width="1264" height="1264">
+                    <img class="hero-logo" src="assets/images/mind-the-gap-man-logo-transparent-600w.webp" srcset="assets/images/mind-the-gap-man-logo-transparent-300w.webp 300w, assets/images/mind-the-gap-man-logo-transparent-600w.webp 600w, assets/images/mind-the-gap-man-logo-transparent.webp 1264w" sizes="(min-width: 1500px) 360px, (max-width: 458px) 110px, 24vw" alt="Mind the Gap Man shield logo" width="1264" height="1264">
                     <span class="hero-letter" aria-hidden="true">R</span>
                     <span class="hero-letter" aria-hidden="true">O</span>
                     <span class="visually-hidden"> - Hero for hire</span>
@@ -90,7 +90,7 @@
                 <div class="row g-4 g-lg-5 align-items-center">
                     <!-- WHAT: Origin story comic image. WHY: Visualises the hero seeing the code behind London. -->
                     <div class="col-12 col-lg-7">
-                        <img src="assets/images/origin-story-main-comicbook.webp" class="origin-img img-fluid" alt="Comic panel of Mind the Gap Man in his cape, standing before falling green binary code" width="1260" height="708" loading="lazy">
+                        <img src="assets/images/origin-story-main-comicbook.webp" srcset="assets/images/origin-story-main-comicbook-600w.webp 600w, assets/images/origin-story-main-comicbook-800w.webp 800w, assets/images/origin-story-main-comicbook.webp 1260w" sizes="(min-width: 992px) 58vw, 100vw" class="origin-img img-fluid" alt="Comic panel of Mind the Gap Man in his cape, standing before falling green binary code" width="1260" height="708" loading="lazy">
                     </div>
                     <!-- WHAT: Humorous origin story copy. WHY: Explains where the powers came from, matching the "Bitten by code" note in the wireframe. -->
                     <div class="col-12 col-lg-5">
@@ -146,19 +146,19 @@
                         <div class="col-12 col-md-4">
                             <figure class="strip-panel m-0">
                                 <span class="comic-caption">Spider Removal</span>
-                                <img class="strip-img" src="assets/images/spider-removal-wb.webp" alt="Comic panel of a large hairy spider with a red no-entry sign" width="840" height="472" loading="lazy">
+                                <img class="strip-img" src="assets/images/spider-removal-wb.webp" srcset="assets/images/spider-removal-wb-600w.webp 600w, assets/images/spider-removal-wb.webp 840w" sizes="(min-width: 768px) 33vw, 100vw" alt="Comic panel of a large hairy spider with a red no-entry sign" width="840" height="472" loading="lazy">
                             </figure>
                         </div>
                         <div class="col-12 col-md-4">
                             <figure class="strip-panel m-0">
                                 <span class="comic-caption">Cat in a Tree</span>
-                                <img class="strip-img" src="assets/images/cat-stuck-in-a-tree-wb.webp" alt="Comic panel of a worried cat stuck high up in a tree" width="1050" height="590" loading="lazy">
+                                <img class="strip-img" src="assets/images/cat-stuck-in-a-tree-wb.webp" srcset="assets/images/cat-stuck-in-a-tree-wb-600w.webp 600w, assets/images/cat-stuck-in-a-tree-wb-800w.webp 800w, assets/images/cat-stuck-in-a-tree-wb.webp 1050w" sizes="(min-width: 768px) 33vw, 100vw" alt="Comic panel of a worried cat stuck high up in a tree" width="1050" height="590" loading="lazy">
                             </figure>
                         </div>
                         <div class="col-12 col-md-4">
                             <figure class="strip-panel m-0">
                                 <span class="comic-caption">Wi-Fi Down</span>
-                                <img class="strip-img" src="assets/images/wifi-down-wb.webp" alt="Comic panel showing a broken Wi-Fi signal with Wi-Fi Down lettering" width="1260" height="708" loading="lazy">
+                                <img class="strip-img" src="assets/images/wifi-down-wb.webp" srcset="assets/images/wifi-down-wb-600w.webp 600w, assets/images/wifi-down-wb-800w.webp 800w, assets/images/wifi-down-wb.webp 1260w" sizes="(min-width: 768px) 33vw, 100vw" alt="Comic panel showing a broken Wi-Fi signal with Wi-Fi Down lettering" width="1260" height="708" loading="lazy">
                             </figure>
                         </div>
                     </div>
@@ -167,13 +167,13 @@
                         <div class="col-12 col-md-8">
                             <figure class="strip-panel m-0">
                                 <span class="comic-caption">Arch-Nemesis Defeat</span>
-                                <img class="strip-img strip-img-wide" src="assets/images/arch-nemesis.webp" alt="Comic panel of the hero firing laser eyes at a skull and crossbones villain with a BANG burst" width="1367" height="768" loading="lazy">
+                                <img class="strip-img strip-img-wide" src="assets/images/arch-nemesis.webp" srcset="assets/images/arch-nemesis-600w.webp 600w, assets/images/arch-nemesis-800w.webp 800w, assets/images/arch-nemesis.webp 1367w" sizes="(min-width: 768px) 66vw, 100vw" alt="Comic panel of the hero firing laser eyes at a skull and crossbones villain with a BANG burst" width="1367" height="768" loading="lazy">
                             </figure>
                         </div>
                         <div class="col-12 col-md-4">
                             <figure class="strip-panel m-0">
                                 <span class="comic-caption">Jar Opening</span>
-                                <img class="strip-img strip-img-wide" src="assets/images/jar.webp" alt="Comic panel of a mighty hand twisting open a stubborn jar lid" width="1050" height="590" loading="lazy">
+                                <img class="strip-img strip-img-wide" src="assets/images/jar.webp" srcset="assets/images/jar-600w.webp 600w, assets/images/jar-800w.webp 800w, assets/images/jar.webp 1050w" sizes="(min-width: 768px) 66vw, 100vw" alt="Comic panel of a mighty hand twisting open a stubborn jar lid" width="1050" height="590" loading="lazy">
                             </figure>
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                             <div class="card-header">
                                 <h2 class="font-comic m-0 py-2"><span class="comic-tilt-alt">DISTRESS</span> SIGNAL</h2>
                             </div>
-                            <img src="assets/images/sos.webp" class="distress-img" width="1367" height="768" loading="lazy" alt="Comic SOS signal beaming into the night sky over London">
+                            <img src="assets/images/sos.webp" srcset="assets/images/sos-600w.webp 600w, assets/images/sos-800w.webp 800w, assets/images/sos.webp 1367w" sizes="(min-width: 992px) 66vw, 100vw" class="distress-img" width="1367" height="768" loading="lazy" alt="Comic SOS signal beaming into the night sky over London">
                             <div class="card-body">
                                 <p class="card-text fs-5 m-0">Cat up a tree? Wi-Fi down? Arch-nemesis cackling? Tap to send a distress signal.</p>
                             </div>
