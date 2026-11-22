@@ -117,8 +117,9 @@ The theme is **"the dark knight meets cyberpunk"**: a night-black graphic-novel 
 
 - **Logo:** a Mind the Gap Man shield logo on a transparent background, used in the navbar and in place of the "O" gap in the hero word "HE[logo]RO".
 - **Navbar background:** a photo of a platform floor with the "MIND THE GAP" warning painted on it (`mind-the-gap-platform-floor-crop.webp`). On screens 1200px and wider it uses `mind-the-gap-platform-floor-wide.webp`, a copy whose plain asphalt edges were extended by mirroring (with Python Pillow), so the photo can stay centred at a fixed size without stretching.
-- **Comic panels:** spider removal, jar opening, cat stuck in a tree, Wi-Fi down, arch-nemesis defeat, the origin story and the SOS distress signal, all drawn in comic illustration style.
+- **Comic panels:** spider removal, jar opening, cat stuck in a tree, Wi-Fi down, queue jumping, arch-nemesis defeat, the origin story and the SOS distress signal, all drawn in comic illustration style.
 - All raster images are **WebP**, have explicit `width`/`height` to avoid layout shift, and use `loading="lazy"` below the fold. The favicon is an SVG roundel.
+- **Responsive images:** large images also have smaller 300 / 600 / 800px copies (for example `jar-600w.webp`), listed in each `<img>` with `srcset` and `sizes`. The browser downloads the smallest copy that is still sharp for the screen, so phones load much less data. Below 992px the navbar uses a 1600px copy of the floor photo.
 
 ### Comic Book Design Rationale
 
@@ -180,6 +181,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 #### Hero Banner
 
 - The word **HE[logo]RO** is set in tilted yellow Bangers letters, with the shield logo as the "O" gap. It is followed by the tagline **"HERO FOR HIRE"** and a large red **DISTRESS SIGNAL** button that links to the contact page.
+- **Spinning superhero logo (pure CSS, no JavaScript):** the shield whirls in with two full turns when the page loads, like a classic TV superhero scene transition. Hovering anywhere over the HERO word spins it one turn clockwise, and it spins back anti-clockwise when the pointer leaves. The hover sits on the whole word rather than the spinning image, so the spin never flickers, and both effects are switched off for users who prefer reduced motion.
 - **User benefit:** the persona and the main call to action are clear straight away (user stories #2, #1).
 
 ![Home page hero banner](assets/images/readme/home-hero-desktop.webp)
@@ -269,8 +271,8 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - **Citizen testimonials** from rescued Londoners, for example as a Bootstrap carousel of speech bubbles.
 - **Live crime and inconvenience stats** (e.g. "Spiders evicted this week") from the brief.
 - **Origin story carousel:** turn the origin story into a swipeable sequence of comic panels.
-- **Arrival method field** on the distress form (e.g. cape, Tube, Boris bike), from the brief.
 - **Online booking and payment** for pre-paid rescues.
+- **Faster mobile loading:** switch the Font Awesome kit from "SVG + JavaScript" to "Web Font" mode in the Font Awesome account, which would remove its 539 KB icon library (see [TESTING.md](TESTING.md#performance-considerations)).
 - **Night / day mode switch** (project board issue #9): a hidden "Easter egg" toggle between the dark night-patrol theme and a lighter daytime comic theme.
 
 ---
@@ -289,7 +291,9 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - **[Coolors](https://coolors.co/):** colour palette.
 - **[Squoosh](https://squoosh.app/):** image conversion to WebP *(edit if a different tool was used)*.
 - **[W3C Markup Validator](https://validator.w3.org/), [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/), Chrome DevTools Lighthouse and [WAVE](https://wave.webaim.org/):** testing.
-- **[Am I Responsive?](https://ui.dev/amiresponsive):** multi-device showcase mockup.
+- **[Am I Responsive?](https://fireship.dev/amiresponsive):** multi-device showcase mockup.
+- **[Playwright](https://playwright.dev/) and the [Lighthouse CLI](https://github.com/GoogleChrome/lighthouse):** automated functional testing of the live site and Lighthouse reports (testing only, not part of the website).
+- **Python [Pillow](https://python-pillow.org/):** generated the smaller responsive image copies, the extra-wide navbar photo and the site wireframe image.
 
 ---
 
@@ -303,6 +307,8 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - Colour combinations were chosen for contrast: light text on the night background, black on yellow, and white on the red and blue buttons (all at least 4.5:1). They are checked in [TESTING.md](TESTING.md#accessibility-testing).
 - Body text uses Open Sans for readability. The decorative Bangers font is kept for short headings and buttons.
 - The navbar hamburger has `aria-controls`, `aria-expanded` and `aria-label`.
+- A `prefers-reduced-motion` rule switches off the logo spin, the pulsing distress button and all hover animations for users who ask their device for less motion.
+- Lighthouse scores **100 for Accessibility** on every page, in both desktop and mobile modes.
 
 ---
 
@@ -317,6 +323,9 @@ All testing is documented in **[TESTING.md](TESTING.md)**. It covers:
 - W3C HTML and CSS validation
 - Lighthouse
 - accessibility
+- a 96-check automated test suite run on the live site (96 of 96 passed)
+
+**Headline results:** all four pages pass the W3C HTML checker with no errors or warnings, and the CSS passes Jigsaw with no errors. Lighthouse scores 100 for Accessibility and Best Practices on every page, and Desktop Performance is 94–97.
 
 ---
 
@@ -335,11 +344,15 @@ All testing is documented in **[TESTING.md](TESTING.md)**. It covers:
 | The first navbar fix made the desktop navbar very tall, with the links pinned to the top instead of centred | Pinning the links above the lettering needed extra height | Scaled the photo to `120%` of the width and anchored it to the right edge (`background-size: 120% auto; background-position: 100% 48%`). This slides the "MIND THE GAP" lettering left, so the navbar could shrink by about 40% (`clamp(110px, 8vw, 150px)`), the links are vertically centred and the desktop logo is larger |
 | From 1200px up, the navbar photo jumped left and zoomed in, and the navbar was still too tall | The `120%` / right-anchored background (above) shifted the lettering left, and stretching the photo to the full screen width zooms in further on wider screens, which needs a taller navbar | Made `mind-the-gap-platform-floor-wide.webp`: the same photo with its plain asphalt edges mirrored out to 6400px (the lettering is untouched). From 1200px up it is shown centred at a fixed size (`background-size: auto 150px`), so the lettering matches its size just below 1200px, stays centred, and the navbar is a fixed 92px on every desktop width |
 | On mobile, the tier comparison table needed sideways scrolling, and "Gold £199" sat on one line while Bronze and Silver wrapped | Four columns of default Bootstrap padding are wider than a 375px screen, and the shorter Gold label had room to stay on one line | Put each tier name and price on separate lines (`d-block`) in all three headers, and reduced the table's font size and cell padding below 576px |
+| Lighthouse flagged a colour-contrast failure on the home page (Accessibility 95) | The tilted neon-red "See" on the yellow "See prices" button had too little contrast | Tilted letters on yellow buttons now use the darker Underground red (5.4:1). Accessibility is now 100 on every page |
+| The contact page scrolled sideways by 12px on phones (found by the automated test suite) | The two-column row used Bootstrap's widest gutter (`g-5`), whose negative margins are wider than the container padding on small screens | Changed to `g-4 g-lg-5`, so the wide gutter is only used on large screens |
+| Slow mobile loading: Lighthouse reported 873 KiB of oversized images | Full-size images (up to 1367px wide) were downloaded even on phones | Added 300 / 600 / 800px WebP copies with `srcset` and `sizes`, a 1600px navbar photo for screens below 992px, and `defer` on the Font Awesome kit |
 
 ### Unfixed Bugs / Known Limitations
 
 - Because the redirect URL is absolute, a form submitted from a local copy will redirect to the live site's thank-you page. This is expected.
-- *Add any bugs still open after final testing here, or state "No known unfixed bugs."*
+- Mobile Lighthouse Performance is 71–73 (desktop 94–97). The main cause is the third-party Font Awesome kit on a simulated slow 4G connection (see [Future Features](#future-features)).
+- The thank-you page scores 63 for SEO because it deliberately uses `noindex`, so search engines do not list a form-confirmation page.
 
 ---
 
@@ -403,7 +416,7 @@ The site is deployed with GitHub Pages:
 - [Marvel](https://www.marvel.com/): comic visual style.
 - [TaskRabbit UK](https://www.taskrabbit.co.uk/): structure for hiring help with everyday tasks.
 - [Cameo](https://www.cameo.com/): layout for booking a persona.
-- [Am I Responsive?](https://ui.dev/amiresponsive): showcase mockup.
+- [Am I Responsive?](https://fireship.dev/amiresponsive): showcase mockup.
 
 ---
 
@@ -413,4 +426,4 @@ The site is deployed with GitHub Pages:
 
 - **Claude Code** (Anthropic) was used as a coding assistant to help scaffold the HTML page structure, the comic-themed CSS and drafts of this README and TESTING.md, based on my own brief, wireframes, design decisions and assets.
 - AI image generation was used for some of the comic illustrations *(state which images and which tool)*.
-- I reviewed, tested, edited and understood all AI-assisted output before committing it, and I take responsibility for the final code and content. All test results in TESTING.md were run and recorded by me.
+- I reviewed, tested, edited and understood all AI-assisted output before committing it, and I take responsibility for the final code and content. Claude Code also helped run the automated tests (Playwright), the W3C validators and Lighthouse, and capture the test screenshots. I checked the responsiveness, browser and live form results myself, and I reviewed every result in TESTING.md.
