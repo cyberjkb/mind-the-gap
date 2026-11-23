@@ -311,8 +311,9 @@
                                 <input type="hidden" name="redirect" value="https://cyberjkb.github.io/mind-the-gap/thank-you.html">
                                 <!-- SUBJECT: email subject line the hero receives for each request. -->
                                 <input type="hidden" name="subject" value="New Rescue Request - Mind the Gap Man">
-                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it -->
-                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1">
+                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it.
+                                     aria-label gives it an accessible name so WAVE does not flag a missing label -->
+                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" aria-label="Leave this box unchecked">
 
                                 <!-- WHAT: Contact details row (name and email). WHY: Required so the hero can reply to confirm the rescue. -->
                                 <div class="row g-3">

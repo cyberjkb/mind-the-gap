@@ -106,8 +106,9 @@
                                 <input type="hidden" name="redirect" value="https://cyberjkb.github.io/mind-the-gap/thank-you.html">
                                 <!-- WHAT: Email subject line. WHY: Makes distress signals easy to spot in the hero's inbox. -->
                                 <input type="hidden" name="subject" value="New Distress Signal - Mind the Gap Man">
-                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it -->
-                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1">
+                                <!-- HONEYPOT: hidden spam trap, bots tick it, humans never see it.
+                                     aria-label gives it an accessible name so WAVE does not flag a missing label -->
+                                <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" aria-label="Leave this box unchecked">
 
                                 <!-- WHAT: Name and email fields side by side. WHY: Required so the hero knows who to rescue and how to reply; stacks on small screens. -->
                                 <div class="row g-3">

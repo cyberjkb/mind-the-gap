@@ -2,7 +2,7 @@
 
 [Back to README](README.md) · **Live site:** [https://cyberjkb.github.io/mind-the-gap/](https://cyberjkb.github.io/mind-the-gap/)
 
-> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by the developer. Results marked **⬜ To confirm** are checks that still to be done.
+> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by the developer. Results marked **⬜ To confirm** are checks that are still to be done.
 
 ---
 
@@ -37,7 +37,7 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 | Semantic HTML tags (header, nav, main, footer, etc.) | Automated suite checked for `header`, `nav`, `main` and `footer` on all four pages | `header > nav`, `main` with `section`s, and `footer` are on every page | Pass ✅ |
 | Appropriate colour contrast | Lighthouse colour-contrast audit on all pages, plus calculated WCAG ratios (see [Accessibility](#accessibility-testing)) | All text pairs meet WCAG AA (4.5:1 for normal text, 3:1 for large text) | Pass ✅ (one failure found and fixed, see [Bugs](#bugs)) |
 | Alt text for all non-text elements | Automated suite checked every `<img>` for non-empty `alt`, and every icon link for an `aria-label` | Every image has meaningful `alt`, and icon links have `aria-label` | Pass ✅ |
-| No WCAG errors detected | Lighthouse Accessibility audit (100 on all pages); WAVE pass with 9.8 average | 0 errors on lighthouse 1 error on WAVE (services.html) missing form label | Pass ✅ (Lighthouse) · Pass ✅ (WAVE) |
+| No WCAG errors detected | Lighthouse Accessibility audit (100 on all pages); WAVE extension in Edge on all four pages (AIM scores 9.7 to 10) | 0 errors on Lighthouse. WAVE found 1 error on services and contact (missing form label on the hidden honeypot field), now fixed, see [Bugs](#bugs) | Pass ✅ (Lighthouse) · Pass ✅ (WAVE) |
 | CSS colour variables used for consistent styling | Reviewed the `:root` block in `assets/css/style.css` | All theme colours are defined as custom properties and used through `var()` | Pass ✅ |
 | WebP images used instead of JPEG/PNG (optional) | Listed `assets/images/` | All raster images are `.webp`, and the favicon is SVG | Pass ✅ |
 | Lazy loading applied to images | Searched the source for `loading="lazy"` | Every image below the fold is lazy-loaded. The navbar and hero logos are not, because they are above the fold | Pass ✅ |
@@ -344,12 +344,15 @@ Switching the kit to Font Awesome's "Web Font" mode (a setting in the Font Aweso
 
 | Page | Errors | Contrast Errors | Alerts | Result | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| Home | ⬜ | ⬜ | ⬜ | ⬜ To confirm | ![WAVE report for the home page](assets/images/testing/wave-index.webp) |
-| Services | ⬜ | ⬜ | ⬜ | ⬜ To confirm | ![WAVE report for the services page](assets/images/testing/wave-services.webp) |
-| Contact | ⬜ | ⬜ | ⬜ | ⬜ To confirm | ![WAVE report for the contact page](assets/images/testing/wave-contact.webp) |
-| Thank You | ⬜ | ⬜ | ⬜ | ⬜ To confirm | ![WAVE report for the thank-you page](assets/images/testing/wave-thank-you.webp) |
+| Home | 0 | 0 | 4 | Pass ✅ (AIM score 9.9/10) | ![WAVE report for the home page](assets/images/testing/wave-index.webp) |
+| Services | 1 | 0 | 6 | 1 error: hidden honeypot field ⚠️ (AIM score 9.9/10) | ![WAVE report for the services page](assets/images/testing/wave-services.webp) |
+| Contact | 1 | 0 | 2 | 1 error: hidden honeypot field ⚠️ (AIM score 9.7/10) | ![WAVE report for the contact page](assets/images/testing/wave-contact.webp) |
+| Thank You | 0 | 0 | 2 | Pass ✅ (AIM score 10/10) | ![WAVE report for the thank-you page](assets/images/testing/wave-thank-you.webp) |
 
-> WAVE runs as a browser extension, so it is run by hand. Lighthouse's accessibility audit (built on the axe-core engine) already scores 100 on every page in both modes.
+> WAVE was run by hand with the WAVE extension in Microsoft Edge on the live site. Lighthouse's accessibility audit (built on the axe-core engine) scores 100 on every page in both modes.
+>
+> - **Errors (services and contact):** each form has one "Missing form label" error. It is the Web3Forms honeypot checkbox (`botcheck`), a spam trap that is hidden from view and taken out of the tab order with `tabindex="-1"`, so people never reach it. It has no `<label>` on purpose, so WAVE flags it.
+> - **Alerts:** "Redundant link" means two nearby links go to the same page, for example the navbar logo and the Home link both pointing to `index.html`. "Possible heading" is styled display text such as "HERO FOR HIRE" and "KAPOW!", which is decorative rather than a real heading. "Long alternative text" on the services page is two service images whose alt text describes the scene in full. None of these alerts are failures.
 
 ### Colour Contrast Checks
 
@@ -392,6 +395,7 @@ Ratios were calculated with the WCAG 2.1 relative-luminance formula, which is th
 | Lighthouse colour-contrast failure on the home page (Accessibility 95) | The tilted neon-red "See" on the yellow "See prices" button had too little contrast | Tilted letters on yellow buttons now use the darker Underground red (5.4:1). Accessibility is now 100 on every page | Fixed ✅ |
 | Contact page scrolled sideways by 12 px on phones (found by the automated suite at 375 px) | The two-column row used Bootstrap's widest gutter (`g-5`, 3rem), whose negative margins are wider than the container's padding on small screens | Changed to `g-4 g-lg-5`, so the wide gutter is only used on large screens | Fixed ✅ |
 | Slow mobile loading: Lighthouse reported 873 KiB of oversized images | Full-size images (up to 1367 px) were downloaded even on phones | Added 300 / 600 / 800 px image copies with `srcset` and `sizes`, a smaller navbar photo for phones, and `defer` on the Font Awesome kit | Fixed ✅ |
+| WAVE "Missing form label" error on the services and contact pages | The hidden Web3Forms honeypot checkbox (`botcheck`) had no label or accessible name | Added `aria-label="Leave this box unchecked"`, which gives it an accessible name without making it visible | Fixed ✅ (re-scan with WAVE to confirm) |
 
 ### Unfixed / Known Limitations
 
@@ -409,6 +413,7 @@ Mind the Gap Man was tested against every item on the submission checklist, ever
 - **Lighthouse:** Accessibility and Best Practices are 100 on every page in both desktop and mobile modes. SEO is 100 on every page except the deliberately `noindex` thank-you page. Desktop Performance is 94–97.
 - **Mobile Performance:** 71–73, held back mainly by the third-party Font Awesome kit. The cause and the fix are documented above.
 - **Bugs found and fixed during testing:** a colour-contrast failure, a 12 px sideways scroll on the contact page, and oversized images on mobile.
+- **WAVE:** 0 contrast errors on every page. Home and thank-you have 0 errors. Services and contact had 1 error each, the unlabelled hidden honeypot spam field, which now has an `aria-label`.
 - **Still to do by hand:** the screen reader checks.
 
 [Back to top](#mind-the-gap-man--testing-and-validation) · [Back to README](README.md)
