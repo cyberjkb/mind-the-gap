@@ -295,7 +295,7 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - **[Am I Responsive?](https://fireship.dev/amiresponsive):** multi-device showcase mockup.
 - **[Playwright](https://playwright.dev/) and the [Lighthouse CLI](https://github.com/GoogleChrome/lighthouse):** automated functional testing of the live site and Lighthouse reports (testing only, not part of the website).
 - **Python [Pillow](https://python-pillow.org/):** generated the smaller responsive image copies, the extra-wide navbar photo and the site wireframe image.
-- **AI [Gemini, Claude & Co-pilot]:** Code checking and analysis, site structure creation, surface guidance, page testing and debugging.
+- **AI [Gemini, Claude & Copilot]:** Code checking and analysis, site structure creation, surface guidance, page testing and debugging.
 
 ---
 
