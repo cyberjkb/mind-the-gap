@@ -289,11 +289,13 @@ The site has three main pages and a confirmation page. They share a navbar and f
 - **[GitHub Pages](https://pages.github.com/):** deployment.
 - **Visual Studio Code:** code editor.
 - **[Coolors](https://coolors.co/):** colour palette.
-- **[Squoosh](https://squoosh.app/):** image conversion to WebP *(edit if a different tool was used)*.
+- **[Squoosh](https://squoosh.app/):** image conversion to WebP.
+- **[Canva](https://canva.com/):** image generation and image conversion to WebP.
 - **[W3C Markup Validator](https://validator.w3.org/), [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/), Chrome DevTools Lighthouse and [WAVE](https://wave.webaim.org/):** testing.
 - **[Am I Responsive?](https://fireship.dev/amiresponsive):** multi-device showcase mockup.
 - **[Playwright](https://playwright.dev/) and the [Lighthouse CLI](https://github.com/GoogleChrome/lighthouse):** automated functional testing of the live site and Lighthouse reports (testing only, not part of the website).
 - **Python [Pillow](https://python-pillow.org/):** generated the smaller responsive image copies, the extra-wide navbar photo and the site wireframe image.
+- **AI [Gemini, Claude & Co-pilot]:** Code checking and analysis, site structure creation, surface guidance, page testing and debugging.
 
 ---
 
@@ -403,10 +405,12 @@ The site is deployed with GitHub Pages:
 - [Font Awesome](https://fontawesome.com/): icons.
 - [Web3Forms](https://web3forms.com/): form-to-email service and the redirect and honeypot pattern from its documentation.
 - [Code Institute](https://codeinstitute.net/): course material and the README/TESTING structure.
+- [Tutors Arthur & Munawar](https://www.waes.ac.uk/): Class tuition and one-to-one advice.
+- [Fellow Students]: Advice and inspiration from various of my classmates. 
 
 ### Media
 
-- Comic illustrations, the logo and the platform-floor image are AI-generated and/or the author's own, made for this project. *(Edit to name the exact tool or source for each image.)*
+- Comic illustrations, the logo and the platform-floor image are AI-generated with the author's own likeness and facial features, made for this project. 
 - The London Underground roundel styling, "Mind the Gap" wording and Tube colours are used as **parody** for educational purposes only. This project is **not affiliated with, endorsed by or connected to Transport for London (TfL)**.
 - Contact details are fictional. The `.example` email domain is reserved and can never receive real mail.
 
@@ -416,14 +420,11 @@ The site is deployed with GitHub Pages:
 - [Marvel](https://www.marvel.com/): comic visual style.
 - [TaskRabbit UK](https://www.taskrabbit.co.uk/): structure for hiring help with everyday tasks.
 - [Cameo](https://www.cameo.com/): layout for booking a persona.
-- [Am I Responsive?](https://fireship.dev/amiresponsive): showcase mockup.
 
 ---
 
 ## Declaration of AI Use
 
-> *Editable: review and amend this declaration so it accurately reflects your own use of AI before submission.*
-
 - **Claude Code** (Anthropic) was used as a coding assistant to help scaffold the HTML page structure, the comic-themed CSS and drafts of this README and TESTING.md, based on my own brief, wireframes, design decisions and assets.
-- AI image generation was used for some of the comic illustrations *(state which images and which tool)*.
+- AI image generation was used for some of the comic illustrations (Canva and Gemini).
 - I reviewed, tested, edited and understood all AI-assisted output before committing it, and I take responsibility for the final code and content. Claude Code also helped run the automated tests (Playwright), the W3C validators and Lighthouse, and capture the test screenshots. I checked the responsiveness, browser and live form results myself, and I reviewed every result in TESTING.md.
