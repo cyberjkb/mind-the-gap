@@ -2,7 +2,7 @@
 
 [Back to README](README.md) · **Live site:** [https://cyberjkb.github.io/mind-the-gap/](https://cyberjkb.github.io/mind-the-gap/)
 
-> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by the developer. Results marked **⬜ To confirm** are checks that are still to be done.
+> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by myself the developer. Results marked **⬜ To confirm** are checks that are still to be done.
 
 ---
 
