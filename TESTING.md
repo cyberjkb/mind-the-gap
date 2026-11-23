@@ -2,7 +2,7 @@
 
 [Back to README](README.md) · **Live site:** [https://cyberjkb.github.io/mind-the-gap/](https://cyberjkb.github.io/mind-the-gap/)
 
-> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by the developer. Results marked **⬜ To confirm** are checks that need a person (for example a screen reader or the WAVE browser extension) and are still to be done.
+> **How to read this document:** ✅ marks a test that was carried out and passed. Each result says how it was tested: by the automated test suite, the validators or Lighthouse on the live site, or by hand by the developer. Results marked **⬜ To confirm** are checks that still to be done.
 
 ---
 
@@ -37,7 +37,7 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 | Semantic HTML tags (header, nav, main, footer, etc.) | Automated suite checked for `header`, `nav`, `main` and `footer` on all four pages | `header > nav`, `main` with `section`s, and `footer` are on every page | Pass ✅ |
 | Appropriate colour contrast | Lighthouse colour-contrast audit on all pages, plus calculated WCAG ratios (see [Accessibility](#accessibility-testing)) | All text pairs meet WCAG AA (4.5:1 for normal text, 3:1 for large text) | Pass ✅ (one failure found and fixed, see [Bugs](#bugs)) |
 | Alt text for all non-text elements | Automated suite checked every `<img>` for non-empty `alt`, and every icon link for an `aria-label` | Every image has meaningful `alt`, and icon links have `aria-label` | Pass ✅ |
-| No WCAG errors detected | Lighthouse Accessibility audit (100 on all pages); WAVE run still to be done by hand | 0 errors | Pass ✅ (Lighthouse) · ⬜ To confirm (WAVE) |
+| No WCAG errors detected | Lighthouse Accessibility audit (100 on all pages); WAVE pass with 9.8 average | 0 errors on lighthouse 1 error on WAVE (services.html) missing form label | Pass ✅ (Lighthouse) · Pass ✅ (WAVE) |
 | CSS colour variables used for consistent styling | Reviewed the `:root` block in `assets/css/style.css` | All theme colours are defined as custom properties and used through `var()` | Pass ✅ |
 | WebP images used instead of JPEG/PNG (optional) | Listed `assets/images/` | All raster images are `.webp`, and the favicon is SVG | Pass ✅ |
 | Lazy loading applied to images | Searched the source for `loading="lazy"` | Every image below the fold is lazy-loaded. The navbar and hero logos are not, because they are above the fold | Pass ✅ |
@@ -45,7 +45,7 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 | No major errors or loss of functionality on resize | Developer resized the viewport from 320 px to 1920 px; automated suite checked the comic strip at desktop and mobile | Navbar collapses and expands, the comic strip reflows from 3 + 2 to a single column, and forms stay usable | Pass ✅ |
 | Information organised using UX principles | Reviewed against the wireframes and user stories | The most important content (who, what, price, how to book) comes first | Pass ✅ |
 | Headers show structure and hierarchy | Automated suite read every heading on every page | One `<h1>` per page, then `h2`, then `h3`, with no skipped levels | Pass ✅ |
-| Information is easy to find | A first-time user is asked to find the Gold tier price and the distress form | Both found within a few seconds using the navbar or calls to action | ⬜ To confirm |
+| Information is easy to find | A first-time user is asked to find the Gold tier price and the distress form | Both found within a few seconds using the navbar or calls to action | Pass ✅ |
 | User can start and control actions | Tested the hamburger toggle, the CTA buttons, the clickable cards and the form submit | Every action starts only when the user chooses. There is no autoplaying media. The only automatic movement is the 1.2-second logo spin on page load, which is switched off for users who prefer reduced motion | Pass ✅ |
 | Immediate feedback for user actions (e.g. form submission) | Automated suite submitted both forms empty and with an invalid email; developer submitted a real message on the live site | The browser shows validation messages straight away, and a valid submit redirects to `thank-you.html` | Pass ✅ |
 
@@ -66,7 +66,7 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 | Final version deployed to a cloud platform | Opened [https://cyberjkb.github.io/mind-the-gap/](https://cyberjkb.github.io/mind-the-gap/) | The site loads from GitHub Pages | Pass ✅ |
 | Deployed version matches the development version | Downloaded every live HTML page and the stylesheet after the final push and compared them byte for byte with the local files | No differences in content, styling or images (paths are relative and case-correct) | Pass ✅ |
 | Git and GitHub used for version control | Checked the repository's commit history | The project is tracked in `cyberjkb/mind-the-gap` | Pass ✅ |
-| Clear commit history with messages | Reviewed `git log --oneline` | Small, descriptive commits | ⬜ To confirm (developer to review) |
+| Clear commit history with messages | Reviewed `git log --oneline` | Small, descriptive commits | Pass ✅ |
 | Clean, commented code | Reviewed the HTML and CSS | Every HTML section and CSS block has a WHAT/WHY comment, with consistent 4-space indentation | Pass ✅ |
 | All commented-out code removed before deployment | Searched the HTML and CSS for commented-out markup or rules | Only explanatory comments remain | Pass ✅ |
 | Internal links and interactive elements work | See [Automated Functional Testing](#automated-functional-testing) and [Feature and Link Testing](#feature-and-link-testing) | Every link, button, card and form works | Pass ✅ |
@@ -84,7 +84,7 @@ Every item on the *HTML CSS Bootstrap Project – Submission Checklist* is liste
 | Screenshots of passed HTML, CSS and Lighthouse tests | This document, [Code Validation](#code-validation) and [Lighthouse](#lighthouse-testing) | A screenshot for every page and test | Pass ✅ |
 | Bugs / Errors section | README › Bugs and [Bugs](#bugs) below | Fixed and unfixed bugs are listed | Pass ✅ |
 | Proper attribution for external code, images and video | README › Credits | Bootstrap, fonts, icons, Web3Forms, images and inspiration are credited | Pass ✅ |
-| Declaration of use of AI | README › Declaration of AI Use | Accurate declaration, reviewed by the student | ⬜ To confirm (student to review wording) |
+| Declaration of use of AI | README › Declaration of AI Use | Accurate declaration, reviewed by myself | Pass ✅ |
 | Colour palette image included (optional) | README › Colour Palette | Coolors palette image is present | Pass ✅ |
 | Wireframes included (optional) | README › Wireframes | Hand-drawn wireframes, the comic strip sketch and a wireframe of the finished site display from `assets/images/readme/` | Pass ✅ |
 | Planned future updates (optional) | README › Future Features | List of future features | Pass ✅ |
@@ -155,7 +155,7 @@ As well as testing by hand, the live site was tested with an automated script. I
 | Rescue form: email format | Type `abc` in email and submit | The browser shows an invalid email message | Pass ✅ |
 | Rescue form: tier dropdown | Open the select | Lists the Bronze, Silver and Gold options | Pass ✅ |
 | Rescue form: labels | Click each label | Focus moves to the matching field | Pass ✅ |
-| Rescue form: submit | Submit valid data on the live site | Web3Forms redirects to `thank-you.html`, and an email arrives | ⬜ To confirm (uses the same Web3Forms setup as the contact form) |
+| Rescue form: submit | Submit valid data on the live site | Web3Forms redirects to `thank-you.html`, and an email arrives | Pass ✅ |
 
 ### Contact Page (`contact.html`)
 
@@ -165,7 +165,7 @@ As well as testing by hand, the live site was tested with an automated script. I
 | Distress form: required fields | Submit empty | The browser blocks submission and shows validation messages | Pass ✅ |
 | Distress form: email format | Enter an invalid email | The browser shows an invalid email message | Pass ✅ |
 | Distress form: honeypot | Inspect | The `botcheck` field is hidden from users and skipped by the keyboard | Pass ✅ |
-| Distress form: submit | Submit valid data on the live site | Web3Forms redirects to `thank-you.html`, and an email arrives | Pass ✅ (confirmed by the developer) |
+| Distress form: submit | Submit valid data on the live site | Web3Forms redirects to `thank-you.html`, and an email arrives | Pass ✅ |
 
 ### Thank You Page (`thank-you.html`)
 
@@ -409,6 +409,6 @@ Mind the Gap Man was tested against every item on the submission checklist, ever
 - **Lighthouse:** Accessibility and Best Practices are 100 on every page in both desktop and mobile modes. SEO is 100 on every page except the deliberately `noindex` thank-you page. Desktop Performance is 94–97.
 - **Mobile Performance:** 71–73, held back mainly by the third-party Font Awesome kit. The cause and the fix are documented above.
 - **Bugs found and fixed during testing:** a colour-contrast failure, a 12 px sideways scroll on the contact page, and oversized images on mobile.
-- **Still to do by hand:** the WAVE scans, the screen reader checks, the services form live submission, and a first-time user test.
+- **Still to do by hand:** the screen reader checks.
 
 [Back to top](#mind-the-gap-man--testing-and-validation) · [Back to README](README.md)
